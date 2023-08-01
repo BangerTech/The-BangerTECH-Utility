@@ -10,6 +10,7 @@ There are two versions, one for ARM based Systems like a Raspberry Pi and one fo
 6. Homebridge
 7. Grafana
 8. influxDB
-9. node-exporter
+9. Portainer
+10. node-exporter
 
 <img width="1221" alt="Screenshot 2023-08-01 at 19 15 59" src="https://github.com/BangerTech/SmartHome-Server-Script/assets/73241309/b945e4f0-f3f6-44cd-862e-9c22dcf0ab96">

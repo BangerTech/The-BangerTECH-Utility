@@ -10,6 +10,7 @@ CHOICES=$(whiptail --backtitle "BangerTECH INSTALLATION SCRIPT X86 VERSION" --ti
   "Homebridge" "Homebridge/HomeKit Server in a Docker Container" OFF \
   "Grafana" "Grafana Dashboard in a Docker Container" OFF \
   "influxDB" "influxDB Database in a Docker Container" OFF \
+  "Portainer" "Docker Management Platform in a Docker Container" OFF \
   "node-exporter" "Data Export used to show host stats in Grafana" OFF  3>&1 1>&2 2>&3)
 
 if [ -z "$CHOICES" ]; then
@@ -84,6 +85,13 @@ if [ -z "$CHOICES" ]; then
         sudo wget https://raw.github.com/BangerTech/influxdb-x86/main/docker-compose.yml
         sudo docker-compose up -d
         whiptail --title "influxDB" --msgbox "You´ll find the WebUI on port http://yourip:8086" 8 120
+      ;;
+      '"Portainer"')
+        mkdir ~/docker-compose-data && cd ~/docker-compose-data
+        mkdir ~/docker-compose-data/portainer && cd ~/docker-compose-data/portainer
+        sudo wget https://raw.github.com/BangerTech/portainer/main/docker-compose.yml
+        sudo docker-compose up -d
+        whiptail --title "Portainer" --msgbox "You´ll find the WebUI on port http://yourip:8999" 8 120
       ;;
       '"node-exporter"')
         mkdir ~/docker-compose-data && cd ~/docker-compose-data

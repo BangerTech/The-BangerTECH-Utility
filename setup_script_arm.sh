@@ -83,6 +83,15 @@ if [ -z "$CHOICES" ]; then
         mkdir ~/docker-compose-data/influxdb && cd ~/docker-compose-data/influxdb
         sudo wget https://raw.github.com/BangerTech/influxdb-arm/main/docker-compose.yml
         sudo docker-compose up -d
+        if whiptail --title "MESSAGE" --yesno "Would you like to create a DATABASE openhab with USER openhabuser ?" 8 120; then
+        sudo docker exec -it influxdb /bin/bash
+        CREATE DATABASE openhab
+        USE openhab
+        CREATE USER openhabuser with PASSWORD 'openhab' WITH ALL PRIVILEGES
+        GRANT ALL PRIVILEGES ON openhab TO openhabuser
+        else 
+          whiptail --title "MESSAGE" --msgbox "You need to create your own DATABASE & USER " 8 120
+        fi
       ;;
       '"node-exporter"')
         mkdir ~/docker-compose-data && cd ~/docker-compose-data

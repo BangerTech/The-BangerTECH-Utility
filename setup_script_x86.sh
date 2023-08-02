@@ -2,7 +2,7 @@
 
 sudo apt update && sudo apt upgrade -y
 
-CHOICES=$(whiptail --backtitle "BangerTECH INSTALLATION SCRIPT X86 VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 22 82 10 \
+CHOICES=$(whiptail --backtitle "BangerTECH INSTALLATION SCRIPT X86 VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 22 82 15 \
   "openHAB" "install openHABian on top of your running System " ON \
   "Docker" "install just the Docker Engine" OFF \
   "Docker+Docker-Compose" "install Docker & Docker-Compose" OFF \

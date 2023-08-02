@@ -17,4 +17,4 @@ There are two versions, one for ARM based Systems like a Raspberry Pi and one fo
 13. CodeServer
 14. node-exporter
 
-<img width="1033" alt="Screenshot 2023-08-02 at 15 24 14" src="https://github.com/BangerTech/SmartHome-Server-Script/assets/73241309/a77ab405-d159-4dd6-aff3-ffbb319e4f74">
+<img width="1156" alt="Screenshot 2023-08-02 at 18 59 26" src="https://github.com/BangerTech/The-BangerTECH-Utility/assets/73241309/229e12cf-c4c9-4640-882c-ddbb37c28ff4">

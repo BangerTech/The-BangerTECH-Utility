@@ -36,12 +36,14 @@ if [ -z "$CHOICES" ]; then
         fi
       ;;
       '"Docker"')
+        sudo apt install curl -y
         sudo curl -fsSL https://get.docker.com -o get-docker.sh
         sudo sh get-docker.sh
         sudo rm get-docker.sh
         sudo systemctl enable docker
       ;;
       '"Docker+Docker-Compose"')
+        sudo apt install curl -y
         sudo curl -fsSL https://get.docker.com -o get-docker.sh
         sudo sh get-docker.sh
         sudo rm get-docker.sh

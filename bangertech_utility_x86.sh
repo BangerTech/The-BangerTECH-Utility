@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo apt update && sudo apt upgrade -y
+sudo apt install whiptail -y
 
 CHOICES=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 22 82 15 \
   "openHAB" "install openHABian on top of your running System " ON \

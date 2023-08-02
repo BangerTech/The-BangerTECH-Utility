@@ -12,6 +12,7 @@ CHOICES=$(whiptail --backtitle "BangerTECH INSTALLATION SCRIPT ARM VERSION" --ti
   "influxDB" "influxDB Database in a Docker Container" OFF \
   "Portainer" "Docker Management Platform in a Docker Container" OFF \
   "Filebrowser" "Self hosted File Managemnet in a Docker Container" OFF \
+  "Heimdall" "Self hosted Dashboard" OFF \
   "node-exporter" "Data Export used to show host stats in Grafana" OFF  3>&1 1>&2 2>&3)
 
 if [ -z "$CHOICES" ]; then
@@ -95,14 +96,14 @@ if [ -z "$CHOICES" ]; then
           whiptail --title "MESSAGE" --msgbox "You need to create your own DATABASE & USER " 8 82
         fi
       ;;
-        '"Portainer"')
+      '"Portainer"')
         mkdir ~/docker-compose-data && cd ~/docker-compose-data
         mkdir ~/docker-compose-data/portainer && cd ~/docker-compose-data/portainer
         sudo wget https://raw.github.com/BangerTech/portainer/main/docker-compose.yml
         sudo docker-compose up -d
         whiptail --title "Portainer" --msgbox "You´ll find the WebUI on port http://yourip:8999" 8 82
       ;;
-        '"Filebrowser"')
+      '"Filebrowser"')
         mkdir ~/docker-compose-data && cd ~/docker-compose-data
         mkdir ~/docker-compose-data/filebrowser && cd ~/docker-compose-data/filebrowser
         mkdir ~/docker-compose-data/filebrowser/database && cd ~/docker-compose-data/filebrowser/database
@@ -112,6 +113,13 @@ if [ -z "$CHOICES" ]; then
         sudo wget https://raw.github.com/BangerTech/filebrowser/main/docker-compose.yml
         sudo docker-compose up -d
         whiptail --title "Filebrowser" --msgbox "You´ll find your self hosted Filebrowser on port http://yourip:8998" 8 82
+      ;;
+      '"Heimdall"')
+        mkdir ~/docker-compose-data && cd ~/docker-compose-data
+        mkdir ~/docker-compose-data/heimdall && cd ~/docker-compose-data/heimdall
+        sudo wget https://raw.github.com/BangerTech/heimdall/main/docker-compose.yml
+        sudo docker-compose up -d
+        whiptail --title "Heimdall" --msgbox "You´ll find the Dashboard on port http://yourip:8500" 8 120
       ;;
       '"node-exporter"')
         mkdir ~/docker-compose-data && cd ~/docker-compose-data

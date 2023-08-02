@@ -32,7 +32,7 @@ if [ -z "$CHOICES" ]; then
         sudo ln -s /opt/openhabian/openhabian-setup.sh /usr/local/bin/openhabian-config
         sudo cp /opt/openhabian/build-image/openhabian.conf /etc/openhabian.conf
         sudo openhabian-config unattended
-        if whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --yesno "openHAB is running on port http://yourIP:8080\nWould you like to restore your old openHAB config?" 8 82; then
+        if whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --yesno "openHAB is running on port http://yourIP:8080\nWould you like to restore your old openHAB config?" 14 82; then
         sudo openhab-cli restore /var/lib/openhab/backups/openhab-backup.zip
         else 
           whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --msgbox "OK enjoy using openHAB" 8 82

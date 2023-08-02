@@ -13,6 +13,8 @@ There are two versions, one for ARM based Systems like a Raspberry Pi and one fo
 9. Portainer
 10. Filestash / Filebrowser
 11. Heimdall
-12. node-exporter
+12. HomeAssistant
+13. CodeServer
+14. node-exporter
 
 <img width="1119" alt="Screenshot 2023-08-02 at 12 27 06" src="https://github.com/BangerTech/SmartHome-Server-Script/assets/73241309/675b15be-de46-46fe-b9f3-79ec1d4f3205">

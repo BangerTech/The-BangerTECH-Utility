@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-CHOICES=$(whiptail --backtitle "BangerTECH INSTALLATION SCRIPT X86 VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 25 120 16 \
-  "openHAB" "install openHABian on top of your running System" ON \
+CHOICES=$(whiptail --backtitle "BangerTECH INSTALLATION SCRIPT X86 VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 22 82 10 \
+  "openHAB" "install openHABian on top of your running System " ON \
   "Docker" "install just the Docker Engine" OFF \
   "Docker+Docker-Compose" "install Docker & Docker-Compose" OFF \
   "MosquittoBroker" "Mosquitto Broker in a Docker Container" OFF \

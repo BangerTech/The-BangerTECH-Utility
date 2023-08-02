@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo apt update && sudo apt upgrade -y
 
 CHOICES=$(whiptail --backtitle "BangerTECH INSTALLATION SCRIPT ARM VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 22 82 10 \
   "openHAB" "install openHABian on top of your running System " ON \
@@ -24,7 +25,6 @@ if [ -z "$CHOICES" ]; then
     for CHOICE in $CHOICES; do
     case "$CHOICE" in
       '"openHAB"')
-        sudo apt update && sudo apt upgrade -y
         sudo apt-get install -y git
         sudo apt install curl -y
         sudo git clone -b openHAB https://github.com/openhab/openhabian.git /opt/openhabian
@@ -151,6 +151,7 @@ if [ -z "$CHOICES" ]; then
       exit 1
       ;;
       esac
+      sudo apt autoremove -y
     done
       if whiptail --title "MESSAGE" --yesno "PACKAGES: $CHOICES installed successfully.\nWould you like to reboot?" 8 82; then
         sudo reboot

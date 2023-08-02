@@ -52,94 +52,94 @@ if [ -z "$CHOICES" ]; then
         sudo apt install -y libffi-dev libssl-dev python3-dev python3 python3-pip
         sudo apt install docker-compose -y
         sudo systemctl enable docker
-        sudo mkdir $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data
       ;;
       '"MosquittoBroker"')
-        sudo mkdir $HOME/docker-compose-data && cd $HOME/docker-compose-data
-        sudo mkdir $HOME/docker-compose-data/mosquitto && cd $HOME/docker-compose-data/mosquitto
-        sudo wget https://raw.github.com/BangerTech/mosquitto-broker/main/docker-compose.yml
-        sudo mkdir $HOME/docker-compose-data/mosquitto/config && cd $HOME/docker-compose-data/mosquitto/config
-        sudo wget https://raw.github.com/BangerTech/mosquitto-broker/main/mosquitto.conf
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/mosquitto && cd $HOME/docker-compose-data/mosquitto
+        sudo wget -nc https://raw.github.com/BangerTech/mosquitto-broker/main/docker-compose.yml
+        sudo mkdir -p $HOME/docker-compose-data/mosquitto/config && cd $HOME/docker-compose-data/mosquitto/config
+        sudo wget -nc https://raw.github.com/BangerTech/mosquitto-broker/main/mosquitto.conf
         cd ..
         sudo docker-compose up -d
       ;;
       '"Zigbee2MQTT"')
-        sudo mkdir $HOME/docker-compose-data && cd $HOME/docker-compose-data
-        sudo mkdir $HOME/docker-compose-data/zigbee2mqtt && cd $HOME/docker-compose-data/zigbee2mqtt
-        sudo wget https://raw.github.com/BangerTech/zigbee2mqtt/main/docker-compose.yml
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/zigbee2mqtt && cd $HOME/docker-compose-data/zigbee2mqtt
+        sudo wget -nc https://raw.github.com/BangerTech/zigbee2mqtt/main/docker-compose.yml
         sudo docker-compose up -d
         whiptail --title "Zigbee2MQTT" --msgbox "Check your Zigbee Network here http://yourip:7000" 8 82
       ;;
       '"Homebridge"')
-        sudo mkdir $HOME/docker-compose-data && cd $HOME/docker-compose-data
-        sudo mkdir $HOME/docker-compose-data/homebridge && cd $HOME/docker-compose-data/homebridge
-        sudo wget https://raw.github.com/BangerTech/homebridge/main/docker-compose.yml
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/homebridge && cd $HOME/docker-compose-data/homebridge
+        sudo wget -nc https://raw.github.com/BangerTech/homebridge/main/docker-compose.yml
         sudo docker-compose up -d
         whiptail --title "Homebridge" --msgbox "Setup the HomeKit Bridge here http://yourip:8321" 8 82
       ;;
       '"Grafana"')
-        sudo mkdir $HOME/docker-compose-data && cd $HOME/docker-compose-data
-        sudo mkdir $HOME/docker-compose-data/grafana && cd $HOME/docker-compose-data/grafana
-        sudo wget https://raw.github.com/BangerTech/grafana/main/docker-compose.yml
-        sudo mkdir $HOME/docker-compose-data/grafana/data && cd $HOME/docker-compose-data/grafana/data
-        sudo wget https://raw.github.com/BangerTech/grafana/main/env.grafana
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/grafana && cd $HOME/docker-compose-data/grafana
+        sudo wget -nc https://raw.github.com/BangerTech/grafana/main/docker-compose.yml
+        sudo mkdir -p $HOME/docker-compose-data/grafana/data && cd $HOME/docker-compose-data/grafana/data
+        sudo wget -nc https://raw.github.com/BangerTech/grafana/main/env.grafana
         sudo docker-compose up -d
         whiptail --title "Grafana" --msgbox "The Dashboard´s are located here http://yourip:3000" 8 82
       ;;
       '"influxDB"')
-        sudo mkdir $HOME/docker-compose-data && cd $HOME/docker-compose-data
-        sudo mkdir $HOME/docker-compose-data/influxdb && cd $HOME/docker-compose-data/influxdb
-        sudo wget https://raw.github.com/BangerTech/influxdb-x86/main/docker-compose.yml
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/influxdb && cd $HOME/docker-compose-data/influxdb
+        sudo wget -nc https://raw.github.com/BangerTech/influxdb-x86/main/docker-compose.yml
         sudo docker-compose up -d
         whiptail --title "influxDB" --msgbox "You´ll find the WebUI on port http://yourip:8086" 8 82
       ;;
       '"Portainer"')
-        sudo mkdir $HOME/docker-compose-data && cd $HOME/docker-compose-data
-        sudo mkdir $HOME/docker-compose-data/portainer && cd $HOME/docker-compose-data/portainer
-        sudo wget https://raw.github.com/BangerTech/portainer/main/docker-compose.yml
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/portainer && cd $HOME/docker-compose-data/portainer
+        sudo wget -nc https://raw.github.com/BangerTech/portainer/main/docker-compose.yml
         sudo docker-compose up -d
         whiptail --title "Portainer" --msgbox "You´ll find the WebUI on port http://yourip:8999" 8 82
       ;;
       '"Filestash"')
-        sudo mkdir $HOME/docker-compose-data && cd $HOME/docker-compose-data
-        sudo mkdir $HOME/docker-compose-data/filestash && cd $HOME/docker-compose-data/filestash
-        sudo wget https://raw.github.com/BangerTech/filestash-before/main/docker-compose.yml
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/filestash && cd $HOME/docker-compose-data/filestash
+        sudo wget -nc https://raw.github.com/BangerTech/filestash-before/main/docker-compose.yml
         sudo docker-compose up -d
         if whiptail --title "MESSAGE" --yesno "Please go to http://yourip:8334 and create a unique password. Done?" 8 82; then
         sudo docker cp filestash:/app/data/state $HOME/docker-compose-data/filestash/data
         sudo docker-compose down
         sudo rm -R docker-compose.yml
-        sudo wget https://raw.github.com/BangerTech/filestash/main/docker-compose.yml
+        sudo wget -nc https://raw.github.com/BangerTech/filestash/main/docker-compose.yml
         sudo docker-compose up -d
         else 
           whiptail --title "MESSAGE" --msgbox "Please redo the installation" 8 82
         fi
       ;;
       '"Heimdall"')
-        sudo mkdir $HOME/docker-compose-data && cd $HOME/docker-compose-data
-        sudo mkdir $HOME/docker-compose-data/heimdall && cd $HOME/docker-compose-data/heimdall
-        sudo wget https://raw.github.com/BangerTech/heimdall/main/docker-compose.yml
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/heimdall && cd $HOME/docker-compose-data/heimdall
+        sudo wget -nc https://raw.github.com/BangerTech/heimdall/main/docker-compose.yml
         sudo docker-compose up -d
         whiptail --title "Heimdall" --msgbox "You´ll find the Dashboard on port http://yourip:8500" 8 82
       ;;
       '"HomeAssistant"')
-        sudo mkdir $HOME/docker-compose-data && cd $HOME/docker-compose-data
-        sudo mkdir $HOME/docker-compose-data/homeassistant && cd $HOME/docker-compose-data/homeassistant
-        sudo wget https://raw.github.com/BangerTech/homeassistant/main/docker-compose.yml
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/homeassistant && cd $HOME/docker-compose-data/homeassistant
+        sudo wget -nc https://raw.github.com/BangerTech/homeassistant/main/docker-compose.yml
         sudo docker-compose up -d
         whiptail --title "HomeAssistant" --msgbox "Your HomeAssistant is located here http://yourip:8123" 8 82
       ;;
       '"CodeServer"')
-        sudo mkdir $HOME/docker-compose-data && cd $HOME/docker-compose-data
-        sudo mkdir $HOME/docker-compose-data/codeserver && cd $HOME/docker-compose-data/codeserver
-        sudo wget https://raw.github.com/BangerTech/codeserver/main/docker-compose.yml
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/codeserver && cd $HOME/docker-compose-data/codeserver
+        sudo wget -nc https://raw.github.com/BangerTech/codeserver/main/docker-compose.yml
         sudo docker-compose up -d
         whiptail --title "CodeServer" --msgbox "Your CodeServer is located here http://yourip:8443\nPassword is: admin\nYou may change it here $HOME/docker-compose-data/codeserver/docker-compose.yml" 14 82
       ;;
       '"node-exporter"')
-        sudo mkdir $HOME/docker-compose-data && cd $HOME/docker-compose-data
-        sudo mkdir $HOME/docker-compose-data/node_exporter && cd $HOME/docker-compose-data/node_exporter
-        sudo wget https://raw.github.com/BangerTech/nodeexporter/main/docker-compose.yml
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/node_exporter && cd $HOME/docker-compose-data/node_exporter
+        sudo wget -nc https://raw.github.com/BangerTech/nodeexporter/main/docker-compose.yml
         sudo docker-compose up -d
       ;;
       *)

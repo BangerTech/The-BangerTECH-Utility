@@ -12,6 +12,7 @@ CHOICES=$(whiptail --backtitle "BangerTECH INSTALLATION SCRIPT X86 VERSION" --ti
   "influxDB" "influxDB Database in a Docker Container" OFF \
   "Portainer" "Docker Management Platform in a Docker Container" OFF \
   "Filestash" "FTP File Browser in a Docker Container" OFF \
+  "Heimdall" "Self hosted Dashboard" OFF \
   "node-exporter" "Data Export used to show host stats in Grafana" OFF  3>&1 1>&2 2>&3)
 
 if [ -z "$CHOICES" ]; then
@@ -108,6 +109,13 @@ if [ -z "$CHOICES" ]; then
         else 
           whiptail --title "MESSAGE" --msgbox "Please redo the installation" 8 120
         fi
+      ;;
+      '"Heimdall"')
+        mkdir ~/docker-compose-data && cd ~/docker-compose-data
+        mkdir ~/docker-compose-data/heimdall && cd ~/docker-compose-data/heimdall
+        sudo wget https://raw.github.com/BangerTech/heimdall/main/docker-compose.yml
+        sudo docker-compose up -d
+        whiptail --title "Heimdall" --msgbox "You´ll find the Dashboard on port http://yourip:8500" 8 120
       ;;
       '"node-exporter"')
         mkdir ~/docker-compose-data && cd ~/docker-compose-data

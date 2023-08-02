@@ -138,7 +138,7 @@ if [ -z "$CHOICES" ]; then
         sudo mkdir $HOME/docker-compose-data/codeserver && cd $HOME/docker-compose-data/codeserver
         sudo wget https://raw.github.com/BangerTech/codeserver/main/docker-compose.yml
         sudo docker-compose up -d
-        whiptail --title "CodeServer" --msgbox "Your CodeServer is located here http://yourip:8443\nPassword is: admin\nYou may change it here $HOME/docker-compose-data/codeserver/docker-compose.yml" 8 82
+        whiptail --title "CodeServer" --msgbox "Your CodeServer is located here http://yourip:8443\nPassword is: admin\nYou may change it here $HOME/docker-compose-data/codeserver/docker-compose.yml" 14 82
       ;;
       '"node-exporter"')
         sudo mkdir $HOME/docker-compose-data && cd $HOME/docker-compose-data

@@ -50,6 +50,7 @@ if [ -z "$CHOICES" ]; then
         sudo apt install -y libffi-dev libssl-dev python3-dev python3 python3-pip
         sudo apt install docker-compose -y
         sudo systemctl enable docker
+        sudo mkdir $HOME/docker-compose-data
       ;;
       '"MosquittoBroker"')
         mkdir ~/docker-compose-data && cd ~/docker-compose-data

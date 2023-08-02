@@ -15,4 +15,4 @@ There are two versions, one for ARM based Systems like a Raspberry Pi and one fo
 11. Heimdall
 12. node-exporter
 
-<img width="1221" alt="Screenshot 2023-08-01 at 19 15 59" src="https://github.com/BangerTech/SmartHome-Server-Script/assets/73241309/b945e4f0-f3f6-44cd-862e-9c22dcf0ab96">
+<img width="1119" alt="Screenshot 2023-08-02 at 12 27 06" src="https://github.com/BangerTech/SmartHome-Server-Script/assets/73241309/675b15be-de46-46fe-b9f3-79ec1d4f3205">

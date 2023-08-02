@@ -11,6 +11,7 @@ CHOICES=$(whiptail --backtitle "BangerTECH INSTALLATION SCRIPT X86 VERSION" --ti
   "Grafana" "Grafana Dashboard in a Docker Container" OFF \
   "influxDB" "influxDB Database in a Docker Container" OFF \
   "Portainer" "Docker Management Platform in a Docker Container" OFF \
+  "Filestash" "FTP File Browser in a Docker Container" OFF \
   "node-exporter" "Data Export used to show host stats in Grafana" OFF  3>&1 1>&2 2>&3)
 
 if [ -z "$CHOICES" ]; then
@@ -92,6 +93,21 @@ if [ -z "$CHOICES" ]; then
         sudo wget https://raw.github.com/BangerTech/portainer/main/docker-compose.yml
         sudo docker-compose up -d
         whiptail --title "Portainer" --msgbox "You´ll find the WebUI on port http://yourip:8999" 8 82
+      ;;
+      '"Filestash"')
+        mkdir ~/docker-compose-data && cd ~/docker-compose-data
+        mkdir ~/docker-compose-data/filestash && cd ~/docker-compose-data/filestash
+        sudo wget https://raw.github.com/BangerTech/filestash-before/main/docker-compose.yml
+        sudo docker-compose up -d
+        if whiptail --title "MESSAGE" --yesno "Please go to http://yourip:8334 and create a unique password. Done?" 8 120; then
+        sudo docker cp filestash:/app/data/state $HOME/docker-compose-data/filestash/data
+        sudo docker-compose down
+        sudo rm -R docker-compose.yml
+        sudo wget https://raw.github.com/BangerTech/filestash/main/docker-compose.yml
+        sudo docker-compose up -d
+        else 
+          whiptail --title "MESSAGE" --msgbox "Please redo the installation" 8 120
+        fi
       ;;
       '"node-exporter"')
         mkdir ~/docker-compose-data && cd ~/docker-compose-data

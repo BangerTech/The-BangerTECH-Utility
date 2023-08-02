@@ -26,16 +26,16 @@ if [ -z "$CHOICES" ]; then
     for CHOICE in $CHOICES; do
     case "$CHOICE" in
       '"openHAB"')
-        sudo apt-get install -y git
-        sudo apt install curl -y
-        sudo git clone -b openHAB https://github.com/openhab/openhabian.git /opt/openhabian
-        sudo ln -s /opt/openhabian/openhabian-setup.sh /usr/local/bin/openhabian-config
-        sudo cp /opt/openhabian/build-image/openhabian.conf /etc/openhabian.conf
-        sudo openhabian-config unattended
+        if ! dpkg --list | grep openhab >/dev/null 2>&1
+        then
+          sudo apt-get install -y git
+          sudo git clone -b openHAB https://github.com/openhab/openhabian.git /opt/openhabian
+          sudo ln -s /opt/openhabian/openhabian-setup.sh /usr/local/bin/openhabian-config
+          sudo cp /opt/openhabian/build-image/openhabian.conf /etc/openhabian.conf
+          sudo openhabian-config unattended
+        fi
         if whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --yesno "openHAB is running on port http://yourIP:8080\nWould you like to restore your old openHAB config?" 14 82; then
         sudo openhab-cli restore /var/lib/openhab/backups/openhab-backup.zip
-        else 
-          whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --msgbox "OK enjoy using openHAB" 8 82
         fi
       ;;
       '"Docker"')

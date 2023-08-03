@@ -76,7 +76,7 @@ if [ -z "$CHOICES" ]; then
         sudo mkdir -p $HOME/docker-compose-data/homebridge && cd $HOME/docker-compose-data/homebridge
         sudo wget -nc https://raw.github.com/BangerTech/homebridge/main/docker-compose.yml
         sudo docker-compose up -d
-        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Homebridge" --msgbox "Setup the HomeKit Bridge here http://yourIP:8321" 8 82
+        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Homebridge" --msgbox "Setup the HomeKit Bridge here http://yourIP:8581" 8 82
       ;;
       '"Grafana"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data

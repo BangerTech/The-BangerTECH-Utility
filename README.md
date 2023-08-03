@@ -16,8 +16,10 @@ There are two versions, one for ARM based Systems like a Raspberry Pi and one fo
 10. Filestash / Filebrowser
 11. Heimdall
 12. HomeAssistant
-13. CodeServer
-14. node-exporter
+13. RaspberryMatic
+14. CodeServer
+15. Prometheus
+16. node-exporter
 
 written Article how to use it: https://bangertech.de/the-bangertech-utility-smarthome-server-schnell-einfach-installiert/
 

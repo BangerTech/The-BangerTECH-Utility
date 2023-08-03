@@ -19,4 +19,4 @@ There are two versions, one for ARM based Systems like a Raspberry Pi and one fo
 13. CodeServer
 14. node-exporter
 
-<img width="1156" alt="Screenshot 2023-08-02 at 19 00 36" src="https://github.com/BangerTech/The-BangerTECH-Utility/assets/73241309/2ce1c86d-3ff5-482d-a4a0-58223892a3f1">
+<img width="1338" alt="Screenshot 2023-08-03 at 12 04 34" src="https://github.com/BangerTech/The-BangerTECH-Utility/assets/73241309/00e0474a-efbf-49b0-b94f-c39ec0d821a1">

@@ -112,6 +112,7 @@ if [ -z "$CHOICES" ]; then
         sudo rm -R docker-compose.yml
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/filestash/main/docker-compose.yml
         sudo docker-compose up -d
+        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Filestash" --msgbox "browse through files on port http://yourIP:8334" 8 82
         else 
           whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "MESSAGE" --msgbox "Please redo the installation" 8 82
         fi

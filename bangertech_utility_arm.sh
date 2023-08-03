@@ -154,7 +154,7 @@ if [ -z "$CHOICES" ]; then
       esac
       sudo apt autoremove -y
     done
-      if whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --yesno "PACKAGES: $CHOICES installed successfully.\nWould you like to reboot?" 8 82; then
+      if whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --yesno "PACKAGES: $CHOICES installed successfully.\nWould you like to reboot?" 14 82; then
         sudo reboot
       fi
   else

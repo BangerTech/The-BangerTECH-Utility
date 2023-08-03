@@ -156,8 +156,6 @@ if [ -z "$CHOICES" ]; then
     done
       if whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --yesno "PACKAGES: $CHOICES installed successfully.\nWould you like to reboot?" 8 82; then
         sudo reboot
-      else 
-        whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --msgbox "All Done!" 8 82
       fi
   else
     whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --msgbox "Cancelling Process since user pressed <NO>." 8 82

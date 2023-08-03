@@ -7,18 +7,18 @@ CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SEL
   "openHAB" "install openHABian on top of your running System " ON \
   "Docker" "install just the Docker Engine" OFF \
   "Docker+Docker-Compose" "install Docker & Docker-Compose" OFF \
-  "MosquittoBroker" "Mosquitto Broker in a Docker Container" OFF \
-  "Zigbee2MQTT" "Zigbee2MQTT in a Docker Container" OFF \
-  "Homebridge" "Homebridge/HomeKit Server in a Docker Container" OFF \
+  "MosquittoBroker" "Mosquitto MQTT Broker" OFF \
+  "Zigbee2MQTT" "Zigbee to MQTT Bridge" OFF \
+  "Homebridge" "Homebridge/HomeKit Server" OFF \
   "Grafana" "Grafana Dashboard in a Docker Container" OFF \
   "influxDB" "influxDB Database in a Docker Container" OFF \
-  "Portainer" "Docker Management Platform in a Docker Container" OFF \
+  "Portainer" "Docker Management Platform" OFF \
   "Filebrowser" "Self hosted File Managemnet in a Docker Container" OFF \
   "Heimdall" "Self hosted Dashboard" OFF \
-  "HomeAssistant" "HomeAssistant in a Container " OFF \
-  "RaspberryMatic" "Homematic CCU in a Container " OFF \
-  "CodeServer" "VS Code through the browser " OFF \
-  "Prometheus" "Monitoring a linux host " OFF \
+  "HomeAssistant" "HomeAssistant in a Docker Container " OFF \
+  "RaspberryMatic" "Homematic CCU in a Docker Container " OFF \
+  "CodeServer" "VS Code through a browser " OFF \
+  "Prometheus" "Monitoring System " OFF \
   "node-exporter" "Data Export used to show host stats in Grafana" OFF  3>&1 1>&2 2>&3)
 
 if [ -z "$CHOICES" ]; then

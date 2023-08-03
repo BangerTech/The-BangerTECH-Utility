@@ -16,7 +16,9 @@ CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SEL
   "Filebrowser" "Self hosted File Managemnet in a Docker Container" OFF \
   "Heimdall" "Self hosted Dashboard" OFF \
   "HomeAssistant" "HomeAssistant in a Container " OFF \
+  "RaspberryMatic" "Homematic CCU in a Container " OFF \
   "CodeServer" "VS Code through the browser " OFF \
+  "Prometheus" "Monitoring a linux host " OFF \
   "node-exporter" "Data Export used to show host stats in Grafana" OFF  3>&1 1>&2 2>&3)
 
 if [ -z "$CHOICES" ]; then
@@ -134,12 +136,29 @@ if [ -z "$CHOICES" ]; then
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "HomeAssistant" --msgbox "Your HomeAssistant is located here http://yourIP:8123" 8 82
       ;;
+      '"RaspberryMatic"')
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/raspberrymatic && cd $HOME/docker-compose-data/raspberrymatic
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/raspberrymatic/main/docker-compose.yml
+        sudo docker-compose up -d
+        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "RaspberryMatic" --msgbox "Your RaspberryMatic is located here http://yourIP:8083" 8 82
+      ;;
       '"CodeServer"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/codeserver && cd $HOME/docker-compose-data/codeserver
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/codeserver/main/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "CodeServer" --msgbox "Your CodeServer is located here http://yourIP:8440\nPassword is: admin\nYou may change it here $HOME/docker-compose-data/codeserver/docker-compose.yml" 14 82
+      ;;
+      '"Prometheus"')
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/prometheus && cd $HOME/docker-compose-data/prometheus
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/prometheus/main/docker-compose.yml
+        sudo mkdir -p $HOME/docker-compose-data/prometheus/prometheus && cd $HOME/docker-compose-data/prometheus/prometheus
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/prometheus/main/prometheus.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/prometheus/main/alert.yml
+        sudo docker-compose up -d
+        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Prometheus" --msgbox "Your Prometheus Monitoring runs at http://yourIP:9090" 8 82
       ;;
       '"node-exporter"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data

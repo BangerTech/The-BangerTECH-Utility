@@ -19,6 +19,7 @@ There are two versions, one for ARM based Systems like a Raspberry Pi and one fo
 13. CodeServer
 14. node-exporter
 
+
 written Article how to use it: https://bangertech.de/the-bangertech-utility-smarthome-server-schnell-einfach-installiert/
 
 <img width="1338" alt="Screenshot 2023-08-03 at 12 12 52" src="https://github.com/BangerTech/The-BangerTECH-Utility/assets/73241309/a4d8ccc9-6e75-458b-9d06-37c95b1353c8">

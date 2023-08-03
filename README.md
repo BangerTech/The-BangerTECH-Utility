@@ -1,7 +1,7 @@
 # The BangerTECH Utility
 With this script you can choose which software you want to run on your Debian based SmartHome Server.  
 After you´ve picked your choice it will install everything for you.  
-There are two versions, one for ARM based Systems like a Raspberry Pi and one for X86 Linux Systems. 
+There are two versions, one for ARM based Systems like a Raspberry Pi and one for X86 Linux Systems.   
 2. Docker + Docker-Compose is required for all Docker Containers. 
 
 1. openHABian

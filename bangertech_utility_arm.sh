@@ -172,13 +172,15 @@ if [ -z "$CHOICES" ]; then
         minute=$(date -d "$timeshutdown" '+%-M')
         wakeuphour=$(date -d "$timewakeup" '+%-H')
         wakeupminute=$(date -d "$timewakeup" '+%-M')
-        sh=$(($hour*60))
-        shutdownmin=$(($sh + $minute))
-        wh=$(($wakeuphour*60))
-        wakeupmin=$(($wh  + $wakeupminute))
-        downtime=$(($shutdownmin - $wakeupmin))
-        downtimeminutes=${downtime#-}
-        sudo echo -e '#!/bin/bash\nsudo sh -c "echo 0 | sudo tee /sys/class/rtc/rtc0/wakealarm"\nsudo sh -c "echo `date '+%s' -d '+ $downtimeminutes minutes'` | sudo tee /sys/class/rtc/rtc0/wakealarm"\nsudo /sbin/shutdown -h now' | sudo tee /usr/local/bin/shutwake.sh
+        sh=$(($hour*3600))
+        sm=$(($minute*60))
+        shutseconds=$(($sh + $sm))
+        wh=$(($wakeuphour*3600))
+        wm=$(($wakeupminute*60))
+        wakeupseconds=$(($wh  + $wm))
+        downtime=$(($shutseconds - $wakeupseconds))
+        downtimeseconds=${downtime#-}
+        sudo echo -e "#!/bin/bash\nsudo rtcwake -m no -s $downtimeseconds\nsudo /sbin/shutdown -h now" | sudo tee /usr/local/bin/shutwake.sh
         sudo chmod +x /usr/local/bin/shutwake.sh
         (crontab -l; echo "$minute $hour * * * /usr/local/bin/shutwake.sh")|awk '!x[$0]++'|crontab -
       ;;

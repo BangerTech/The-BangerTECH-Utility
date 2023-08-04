@@ -19,7 +19,8 @@ CHOICES=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "SEL
   "RaspberryMatic" "Homematic CCU in a Docker Container " OFF \
   "CodeServer" "VS Code through a Browser " OFF \
   "Prometheus" "Monitoring System " OFF \
-  "node-exporter" "Data Export used to show host stats in Grafana" OFF  3>&1 1>&2 2>&3)
+  "node-exporter" "Data Export used to show host stats in Grafana " OFF \
+  "shut-wake" "shuts down & wakes up your Server fully automatic " OFF  3>&1 1>&2 2>&3)
 
 if [ -z "$CHOICES" ]; then
   whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "MESSAGE" --msgbox "No option was selected (user hit Cancel or ESC)" 8 82
@@ -163,6 +164,24 @@ if [ -z "$CHOICES" ]; then
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/nodeexporter/main/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "node-exporter" --msgbox "Scrape your Data from http://yourIP:9100" 8 82
+      ;;
+      '"shut-wake"')
+        timeshutdown=$(whiptail --inputbox " when do you want to shutdown your server? (hh:mm) " 15 85 3>&1 1>&2 2>&3)
+        timewakeup=$(whiptail --inputbox " when do you want to wakeup your server? (hh:mm) " 15 85 3>&1 1>&2 2>&3)
+        whiptail --ok-button Done --msgbox " Ok the server will be shutdown between $timeshutdown and $timewakeup ." 15 85
+        hour=$(date -d "$timeshutdown" '+%-H')
+        minute=$(date -d "$timeshutdown" '+%-M')
+        wakeuphour=$(date -d "$timewakeup" '+%-H')
+        wakeupminute=$(date -d "$timewakeup" '+%-M')
+        sh=$(($hour*60))
+        shutdownmin=$(($sh + $minute))
+        wh=$(($wakeuphour*60))
+        wakeupmin=$(($wh  + $wakeupminute))
+        downtime=$(($shutdownmin - $wakeupmin))
+        downtimeminutes=${downtime#-}
+        sudo echo -e '#!/bin/bash\nsudo sh -c "echo 0 | sudo tee /sys/class/rtc/rtc0/wakealarm"\nsudo sh -c "echo `date '+%s' -d '+ $downtimeminutes minutes'` | sudo tee /sys/class/rtc/rtc0/wakealarm"\nsudo /sbin/shutdown -h now' | sudo tee /usr/local/bin/shutwake.sh
+        sudo chmod +x /usr/local/bin/shutwake.sh
+        (crontab -l; echo "$minute $hour * * * /usr/local/bin/shutwake.sh")|awk '!x[$0]++'|crontab -
       ;;
       *)
         echo "Unsupported item $CHOICE!" >&2

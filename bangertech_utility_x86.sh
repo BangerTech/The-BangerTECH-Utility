@@ -174,9 +174,11 @@ if [ -z "$CHOICES" ]; then
         wakeuphour=$(date -d "$timewakeup" '+%-H')
         wakeupminute=$(date -d "$timewakeup" '+%-M')
         sh=$(($hour*3600))
-        shutseconds=$(($sh + $minute))
+        sm=$(($minute*60))
+        shutseconds=$(($sh + $sm))
         wh=$(($wakeuphour*3600))
-        wakeupseconds=$(($wh  + $wakeupminute))
+        wm=$(($wakeupminute*60))
+        wakeupseconds=$(($wh  + $wm))
         downtime=$(($shutseconds - $wakeupseconds))
         downtimeseconds=${downtime#-}
         sudo echo -e "#!/bin/bash\nsudo rtcwake -m no -s $downtimeseconds\nsudo /sbin/shutdown -h now" | sudo tee /usr/local/bin/shutwake.sh

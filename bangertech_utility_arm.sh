@@ -14,7 +14,7 @@ CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SEL
   "influxDB" "influxDB Database in a Docker Container" OFF \
   "Portainer" "Docker Management Platform" OFF \
   "Filebrowser" "Self hosted File Managemnet in a Docker Container" OFF \
-  "Heimdall" "Self hosted Dashboard" OFF \
+  "Heimdall" "Self hosted Dashboard on 64bit RPI" OFF \
   "HomeAssistant" "HomeAssistant in a Docker Container " OFF \
   "RaspberryMatic" "Homematic CCU in a Docker Container " OFF \
   "CodeServer" "VS Code through a browser " OFF \

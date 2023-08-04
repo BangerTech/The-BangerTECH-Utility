@@ -165,9 +165,9 @@ if [ -z "$CHOICES" ]; then
         sudo docker-compose up -d
       ;;
       '"shut-wake"')
-        timeshutdown=$(whiptail --inputbox " when do you want to shutdown your server? (hh:mm) " 15 85 3>&1 1>&2 2>&3)
-        timewakeup=$(whiptail --inputbox " when do you want to wakeup your server? (hh:mm) " 15 85 3>&1 1>&2 2>&3)
-        whiptail --ok-button Done --msgbox " Ok the server will be shutdown between $timeshutdown and $timewakeup ." 15 85
+        timeshutdown=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --inputbox " when do you want to shutdown your server? (hh:mm) " 15 85 3>&1 1>&2 2>&3)
+        timewakeup=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --inputbox " when do you want to wakeup your server? (hh:mm) " 15 85 3>&1 1>&2 2>&3)
+        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --ok-button Done --msgbox " Ok the server will be shutdown between $timeshutdown and $timewakeup ." 15 85
         hour=$(date -d "$timeshutdown" '+%-H')
         minute=$(date -d "$timeshutdown" '+%-M')
         wakeuphour=$(date -d "$timewakeup" '+%-H')

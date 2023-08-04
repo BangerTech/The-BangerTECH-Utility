@@ -36,10 +36,10 @@ There are two versions, one for ARM based Systems like a Raspberry Pi and one fo
 
 
 # 3. Setup & Requirements
-- sudo should be installed
-- $USER needs to be a Member of Group sudo
-- ad %sudo  ALL=(ALL) NOPASSWD:ALL with visudo
-- Docker + Docker-Compose is required for all Container based Programs
+- _sudo_ should be installed
+- **$USER** needs to be a Member of Group _sudo_
+- ad **%sudo  ALL=(ALL) NOPASSWD:ALL** with _visudo_
+- Docker + Docker-Compose is **required** for all Container based Programs
 
 # 4. How to use it?
 

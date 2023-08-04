@@ -3,7 +3,7 @@
 sudo apt update && sudo apt upgrade -y
 sudo apt install whiptail -y
 
-CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 24 82 17 \
+CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 24 85 17 \
   "openHAB" "install openHABian on top of your running System " ON \
   "Docker" "install just the Docker Engine" OFF \
   "Docker+Docker-Compose" "install Docker & Docker-Compose" OFF \

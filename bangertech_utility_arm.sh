@@ -121,7 +121,7 @@ if [ -z "$CHOICES" ]; then
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/filebrowser/main/settings.json
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/filebrowser/main/docker-compose.yml
         sudo docker-compose up -d
-        whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Filebrowser" --msgbox "You´ll find your self hosted Filebrowser on port http://yourIP:8998" 8 82
+        whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Filebrowser" --msgbox "You´ll find your self hosted Filebrowser on port http://yourIP:8998\nUser=admin Password=admin " 8 82
       ;;
       '"Heimdall"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data

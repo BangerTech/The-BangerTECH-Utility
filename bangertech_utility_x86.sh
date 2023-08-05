@@ -95,7 +95,12 @@ if [ -z "$CHOICES" ]; then
         sudo mkdir -p $HOME/docker-compose-data/influxdb && cd $HOME/docker-compose-data/influxdb
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/influxdb-x86/main/docker-compose.yml
         sudo docker-compose up -d
-        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "influxDB" --msgbox "You´ll find the WebUI on port http://yourIP:8086" 8 82
+        if whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "MESSAGE" --yesno "Would you like to create a DATABASE openhab with USER openhabuser PASSWD openhab ?" 8 82; then
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/influxdb-arm/main/influxdatabase.sh
+        sudo sh influxdatabase.sh
+        else 
+          whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "MESSAGE" --msgbox "You need to create your own DATABASE & USER " 8 82
+        fi
       ;;
       '"Portainer"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data

@@ -63,7 +63,7 @@ if [ -z "$CHOICES" ]; then
         sudo mkdir -p $HOME/docker-compose-data/mosquitto && cd $HOME/docker-compose-data/mosquitto
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/mosquitto-broker/docker-compose.yml
         sudo mkdir -p $HOME/docker-compose-data/mosquitto/config && cd $HOME/docker-compose-data/mosquitto/config
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/mosquitto-broker/main/mosquitto.conf
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/mosquitto-broker/mosquitto.conf
         cd ..
         sudo docker-compose up -d
       ;;

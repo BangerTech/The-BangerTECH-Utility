@@ -164,11 +164,12 @@ if [ -z "$CHOICES" ]; then
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Prometheus" --msgbox "Your Prometheus Monitoring runs at http://yourIP:9090" 8 82
       ;;
       '"node-exporter"')
+        ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/node_exporter && cd $HOME/docker-compose-data/node_exporter
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/nodeexporter/docker-compose.yml
         sudo docker-compose up -d
-        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "node-exporter" --msgbox "Scrape your Data from http://yourIP:9100" 8 82
+        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "node-exporter" --msgbox "Scrape your Data from http://$ipaddr:9100" 8 82
       ;;
       '"shut-wake"')
         timeshutdown=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --inputbox " when do you want to shutdown your server? (hh:mm) " 15 85 3>&1 1>&2 2>&3)

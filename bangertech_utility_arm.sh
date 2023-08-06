@@ -96,7 +96,7 @@ if [ -z "$CHOICES" ]; then
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/influxdb-arm/docker-compose.yml
         sudo docker-compose up -d
         if whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --yesno "Would you like to create a DATABASE database1 with USER user1 PASSWD pwd12345 ?" 8 82; then
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/scripts/influxdb/influxdatabase.sh
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/scripts/influxdb/influxdbdatabase.sh
         sudo sh influxdatabase.sh
         else 
           whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --msgbox "You need to create your own DATABASE & USER " 8 82

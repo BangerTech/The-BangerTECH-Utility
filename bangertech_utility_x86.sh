@@ -63,37 +63,37 @@ if [ -z "$CHOICES" ]; then
         sudo mkdir -p $HOME/docker-compose-data/mosquitto && cd $HOME/docker-compose-data/mosquitto
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/mosquitto-broker/docker-compose.yml
         sudo mkdir -p $HOME/docker-compose-data/mosquitto/config && cd $HOME/docker-compose-data/mosquitto/config
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/mosquitto-broker/main/mosquitto.conf
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/mosquitto-broker/main/mosquitto.conf
         cd ..
         sudo docker-compose up -d
       ;;
       '"Zigbee2MQTT"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/zigbee2mqtt && cd $HOME/docker-compose-data/zigbee2mqtt
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/zigbee2mqtt/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/zigbee2mqtt/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Zigbee2MQTT" --msgbox "Check your Zigbee Network here http://yourIP:7000" 8 82
       ;;
       '"Homebridge"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/homebridge && cd $HOME/docker-compose-data/homebridge
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/homebridge/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/homebridge/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Homebridge" --msgbox "Setup the HomeKit Bridge here http://yourIP:8581" 8 82
       ;;
       '"Grafana"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/grafana && cd $HOME/docker-compose-data/grafana
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/grafana/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/grafana/docker-compose.yml
         sudo mkdir -p $HOME/docker-compose-data/grafana/data && cd $HOME/docker-compose-data/grafana/data
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/grafana/env.grafana
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/grafana/env.grafana
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Grafana" --msgbox "The Dashboard´s are located here http://yourIP:3000" 8 82
       ;;
       '"influxDB"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/influxdb && cd $HOME/docker-compose-data/influxdb
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/influxdb-x86/docker-compose1.8.10.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/influxdb-x86/docker-compose1.8.10.yml
         sudo docker-compose -f docker-compose1.8.10.yml up -d
         if whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "MESSAGE" --yesno "Would you like to create a DATABASE database1 with USER user1 PASSWD pwd12345 ?" 8 88; then
         sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/scripts/influxdb/influxdatabase.sh
@@ -105,20 +105,20 @@ if [ -z "$CHOICES" ]; then
       '"Portainer"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/portainer && cd $HOME/docker-compose-data/portainer
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/portainer/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/portainer/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Portainer" --msgbox "You´ll find the WebUI on port http://yourIP:8999" 8 82
       ;;
       '"Filestash"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/filestash && cd $HOME/docker-compose-data/filestash
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/filestash/docker-compose-before.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/filestash/docker-compose-before.yml
         sudo docker-compose -f docker-compose-before.yml up -d
         if whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "MESSAGE" --yesno "Please go to http://yourIP:8334 and create a unique password. Done?" 8 82; then
         sudo docker cp filestash:/app/data/state $HOME/docker-compose-data/filestash/data
         sudo docker-compose down
         sudo rm -R docker-compose.yml
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/filestash/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/filestash/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Filestash" --msgbox "browse through files on port http://yourIP:8334" 8 82
         else 
@@ -128,45 +128,45 @@ if [ -z "$CHOICES" ]; then
       '"Heimdall"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/heimdall && cd $HOME/docker-compose-data/heimdall
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/heimdall/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/heimdall/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Heimdall" --msgbox "You´ll find the Dashboard on port http://yourIP:8500" 8 82
       ;;
       '"HomeAssistant"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/homeassistant && cd $HOME/docker-compose-data/homeassistant
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/homeassistant/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/homeassistant/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "HomeAssistant" --msgbox "Your HomeAssistant is located here http://yourIP:8123" 8 82
       ;;
       '"RaspberryMatic"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/raspberrymatic && cd $HOME/docker-compose-data/raspberrymatic
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/raspberrymatic/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/raspberrymatic/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "RaspberryMatic" --msgbox "Your RaspberryMatic is located here http://yourIP:8083" 8 82
       ;;
       '"CodeServer"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/codeserver && cd $HOME/docker-compose-data/codeserver
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/codeserver/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/codeserver/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "CodeServer" --msgbox "Your CodeServer is located here http://yourIP:8440\nPassword is: admin\nYou may change it here $HOME/docker-compose-data/codeserver/docker-compose.yml" 14 82
       ;;
       '"Prometheus"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/prometheus && cd $HOME/docker-compose-data/prometheus
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/prometheus/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/prometheus/docker-compose.yml
         sudo mkdir -p $HOME/docker-compose-data/prometheus/prometheus && cd $HOME/docker-compose-data/prometheus/prometheus
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/prometheus/prometheus.yml
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/prometheus/alert.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/prometheus/prometheus.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/prometheus/alert.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Prometheus" --msgbox "Your Prometheus Monitoring runs at http://yourIP:9090" 8 82
       ;;
       '"node-exporter"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/node_exporter && cd $HOME/docker-compose-data/node_exporter
-        sudo wget -nc https://raw.github.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/nodeexporter/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/nodeexporter/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "node-exporter" --msgbox "Scrape your Data from http://yourIP:9100" 8 82
       ;;

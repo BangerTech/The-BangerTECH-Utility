@@ -33,6 +33,8 @@ There are two versions, one for ARM based Systems like a Raspberry Pi and one fo
 14. CodeServer
 15. Prometheus
 16. node-exporter
+17. Whats up Docker
+18. shut-wake Script
 
 
 # 3. Setup & Requirements

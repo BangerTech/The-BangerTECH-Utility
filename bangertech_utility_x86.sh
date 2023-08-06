@@ -3,7 +3,7 @@
 sudo apt update && sudo apt upgrade -y
 sudo apt install whiptail -y
 
-CHOICES=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 24 85 17 \
+CHOICES=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 26 85 18 \
   "openHAB" "install openHABian on top of your running System " ON \
   "Docker" "install just the Docker Engine" OFF \
   "Docker+Docker-Compose" "install Docker & Docker-Compose" OFF \
@@ -20,6 +20,7 @@ CHOICES=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "SEL
   "CodeServer" "VS Code through a Browser " OFF \
   "Prometheus" "Monitoring System " OFF \
   "node-exporter" "Data Export used to show host stats in Grafana " OFF \
+  "Whats-Up-Docker" "updating Docker Containers made easy " OFF \
   "shut-wake" "shuts down & wakes up your Server fully automatic " OFF  3>&1 1>&2 2>&3)
 
 if [ -z "$CHOICES" ]; then
@@ -181,6 +182,14 @@ if [ -z "$CHOICES" ]; then
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/nodeexporter/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "node-exporter" --msgbox "Scrape your Data from http://$ipaddr:9100" 8 82
+      ;;
+      '"node-exporter"')
+        ipaddr=$(hostname -I | awk '{print $1}')
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/whatsupdocker && cd $HOME/docker-compose-data/whatsupdocker
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/whatsupdocker/docker-compose.yml
+        sudo docker-compose up -d
+        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Whats up Docker" --msgbox "Update your Containers here http://$ipaddr:3004" 8 82
       ;;
       '"shut-wake"')
         timeshutdown=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --inputbox " when do you want to shutdown your server? (hh:mm) " 15 85 3>&1 1>&2 2>&3)

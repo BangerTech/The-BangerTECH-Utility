@@ -116,8 +116,8 @@ if [ -z "$CHOICES" ]; then
         sudo docker-compose -f docker-compose-before.yml up -d
         if whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "MESSAGE" --yesno "Please go to http://yourIP:8334 and create a unique password. Done?" 8 82; then
         sudo docker cp filestash:/app/data/state $HOME/docker-compose-data/filestash/data
-        sudo docker-compose down
-        sudo rm -R docker-compose.yml
+        sudo docker-compose -f docker-compose-before.yml down
+        sudo rm -R docker-compose-before.yml
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/filestash/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Filestash" --msgbox "browse through files on port http://yourIP:8334" 8 82

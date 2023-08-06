@@ -183,7 +183,7 @@ if [ -z "$CHOICES" ]; then
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "node-exporter" --msgbox "Scrape your Data from http://$ipaddr:9100" 8 82
       ;;
-      '"node-exporter"')
+      '"Whats-Up-Docker"')
         ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/whatsupdocker && cd $HOME/docker-compose-data/whatsupdocker

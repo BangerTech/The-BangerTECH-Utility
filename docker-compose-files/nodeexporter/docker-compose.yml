@@ -1,13 +1,12 @@
 version: "3"
 services:
-  homebridge:
-    image: homebridge/homebridge:latest
-    restart: always
+  node_exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    container_name: node_exporter
+    command:
+      - '--path.rootfs=/host'
     network_mode: host
+    pid: host
+    restart: unless-stopped
     volumes:
-      - ./data:/homebridge
-    logging:
-      driver: json-file
-      options:
-        max-size: "10mb"
-        max-file: "1"
+      - '/:/host:ro,rslave'

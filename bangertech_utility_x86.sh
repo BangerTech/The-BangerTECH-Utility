@@ -37,6 +37,7 @@ if [ -z "$CHOICES" ]; then
           sudo cp /opt/openhabian/build-image/openhabian.conf /etc/openhabian.conf
           sudo openhabian-config unattended
         fi
+        ipaddr=$(hostname -I | awk '{print $1}')
         if whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "MESSAGE" --yesno "openHAB is running on port http://$ipaddr:8080\nWould you like to restore your old openHAB config?" 14 82; then
         sudo openhab-cli restore /var/lib/openhab/backups/openhab-backup.zip
         fi

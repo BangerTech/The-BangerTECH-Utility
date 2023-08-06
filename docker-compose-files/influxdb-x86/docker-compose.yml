@@ -1,0 +1,11 @@
+version: "3"
+services:
+  influxdb:
+    # Debian X86 Image
+    image: influxdb:latest
+    container_name: influxdb
+    restart: always
+    volumes:
+      - ./data:/var/lib/influxdb
+    ports:
+      - "8086:8086"

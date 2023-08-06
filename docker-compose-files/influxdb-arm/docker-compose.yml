@@ -1,0 +1,11 @@
+version: "3"
+services:
+  influxdb:
+    # Raspberry Pi Image
+    image: hypriot/rpi-influxdb
+    container_name: influxdb
+    restart: always
+    volumes:
+      - ./data:/var/lib/influxdb
+    ports:
+      - "8086:8086"

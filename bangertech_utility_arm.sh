@@ -95,7 +95,7 @@ if [ -z "$CHOICES" ]; then
         sudo mkdir -p $HOME/docker-compose-data/influxdb && cd $HOME/docker-compose-data/influxdb
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/influxdb-arm/main/docker-compose.yml
         sudo docker-compose up -d
-        if whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --yesno "Would you like to create a DATABASE openhab with USER openhabuser PASSWD openhab ?" 8 82; then
+        if whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --yesno "Would you like to create a DATABASE database1 with USER user1 PASSWD pwd12345 ?" 8 82; then
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/influxdb-arm/main/influxdatabase.sh
         sudo sh influxdatabase.sh
         else 

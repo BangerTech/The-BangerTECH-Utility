@@ -13,9 +13,9 @@ services:
     depends_on:
       - node-bootstrap
     volumes:
-    - ~/.dockerdata/wyl:/data
+    - ./data:/data
     environment:
-      TZ: Europe/Berlin              # required: needs your TZ for correct time
+      TZ: Europe/Berlin                 # required: needs your TZ for correct time
       DBPATH: "/data/db.sqlite"         # optional, default: /data/db.sqlite
       GUIIP: "0.0.0.0"                  # optional, default: localhost
       GUIPORT: "8840"                   # optional, default: 8840

@@ -13,7 +13,7 @@ echo "Donations: https://www.paypal.com/donate/?hosted_button_id=FD26FHKRWS3US"
 
 sleep 5
 
-CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 26 85 18 \
+CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 27 85 19 \
   "openHAB" "install openHABian on top of your running System " ON \
   "Docker" "install just the Docker Engine" OFF \
   "Docker+Docker-Compose" "install Docker & Docker-Compose" OFF \
@@ -31,6 +31,7 @@ CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SEL
   "Prometheus" "Monitoring System " OFF \
   "node-exporter" "Data Export used to show host stats in Grafana " OFF \
   "Whats-Up-Docker" "updating Docker Containers made easy " OFF \
+  "WatchYourLAN" "Lightweight network IP scanner" OFF \
   "shut-wake" "shuts down & wakes up your Server fully automatic " OFF  3>&1 1>&2 2>&3)
 
 if [ -z "$CHOICES" ]; then
@@ -193,6 +194,19 @@ if [ -z "$CHOICES" ]; then
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/whatsupdocker/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Whats up Docker" --msgbox "Update your Containers here http://$ipaddr:3004" 8 82
+      ;;
+      '"WatchYourLAN"')
+        ipaddr=$(hostname -I | awk '{print $1}')
+        lanaddr1=$(ls /sys/class/net/)
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/watchyourlan && cd $HOME/docker-compose-data/watchyourlan
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/watchyourlan/docker-compose.yml
+        lanaddr=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --inputbox "which network interface do you want to use to scan?\n\n$lanaddr1 " 17 85 3>&1 1>&2 2>&3)
+        if ! grep -q 'IFACE: "'"$lanaddr"'"' "$HOME/docker-compose-data/watchyourlan/docker-compose.yml"; then
+        sudo sed -i '19i\      IFACE: "'"$lanaddr"'"' "$HOME/docker-compose-data/watchyourlan/docker-compose.yml"
+        fi
+        sudo docker-compose up -d
+        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "WatchYourLAN" --msgbox "scan your Network here http://$ipaddr:8840" 8 82
       ;;
       '"shut-wake"')
         timeshutdown=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --inputbox " when do you want to shutdown your server? (hh:mm) " 15 85 3>&1 1>&2 2>&3)

@@ -200,7 +200,7 @@ if [ -z "$CHOICES" ]; then
         lanaddr1=$(ls /sys/class/net/)
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/watchyourlan && cd $HOME/docker-compose-data/watchyourlan
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/watchyourlan/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/watchyourlanarm/docker-compose.yml
         lanaddr=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --inputbox "which network interface do you want to use to scan?\n\n$lanaddr1 " 17 85 3>&1 1>&2 2>&3)
         if ! grep -q 'IFACE: "'"$lanaddr"'"' "$HOME/docker-compose-data/watchyourlan/docker-compose.yml"; then
         sudo sed -i '19i\      IFACE: "'"$lanaddr"'"' "$HOME/docker-compose-data/watchyourlan/docker-compose.yml"

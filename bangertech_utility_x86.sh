@@ -240,7 +240,7 @@ if [ -z "$CHOICES" ]; then
       exit 1
       ;;
       esac
-      sudo apt autoremove -y
+      sudo bash -c 'sudo apt autoremove -y >/dev/null 2>&1 & disown'
     done
       if whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "MESSAGE" --yesno "PACKAGES: $CHOICES installed successfully.\nWould you like to reboot?" 14 82; then
         sudo reboot

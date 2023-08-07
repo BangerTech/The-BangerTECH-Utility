@@ -4,6 +4,7 @@ sudo bash -c 'sudo apt install whiptail -y >/dev/null 2>&1 & disown'
 sudo bash -c 'sudo apt update && sudo apt upgrade -y >/dev/null 2>&1 & disown'
 sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/scripts/logo.txt
 sudo cat logo.txt
+
 echo "Website: https://bangertech.de"
 echo "Donations: https://www.paypal.com/donate/?hosted_button_id=FD26FHKRWS3US"
 

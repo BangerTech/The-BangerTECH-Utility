@@ -1,12 +1,12 @@
 version: "3"
 services:
   node-bootstrap:
-    image: aceberg/node-bootstrap
+    image: aceberg/node-bootstrap:latest
     restart: unless-stopped
     ports:
     - 8850:8850
   wyl:
-    image: aceberg/watchyourlan
+    image: aceberg/watchyourlan:latest
     network_mode: "host"      
     restart: unless-stopped
     command: "-n http://127.0.0.1:8850"

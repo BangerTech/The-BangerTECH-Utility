@@ -1,8 +1,8 @@
 #!/bin/bash
-
+sudo apt update && sudo apt upgrade -y
 sudo bash -c 'sudo apt install whiptail -y >/dev/null 2>&1 & disown'
 sudo bash -c 'sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/scripts/logo.txt >/dev/null 2>&1 & disown'
-sudo bash -c 'sudo apt update && sudo apt upgrade -y >/dev/null 2>&1 & disown'
+#sudo bash -c 'sudo apt update && sudo apt upgrade -y >/dev/null 2>&1 & disown'
 
 sleep 2
 sudo cat logo.txt

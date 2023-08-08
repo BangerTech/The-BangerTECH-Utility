@@ -49,14 +49,14 @@ There are two versions, one for ARM based Systems like a Raspberry Pi and one fo
 
 For X86 Systems:
 1. cd $HOME
-2. sudo wget https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/bangertech_utility_x86.sh
+2. sudo wget https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/bangertech_utility_x86.sh
 3. sudo chmod +x bangertech_utility_x86.sh
 4. sh bangertech_utility_x86.sh
 5. pick your Program and follow the Steps presented by the Tool
 
 For ARM Systems:
 1. cd $HOME
-2. sudo wget https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/bangertech_utility_arm.sh
+2. sudo wget https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/bangertech_utility_arm.sh
 3. sudo chmod +x bangertech_utility_arm.sh
 4. sh bangertech_utility_arm.sh
 5. pick your Program and follow the Steps presented by the Tool

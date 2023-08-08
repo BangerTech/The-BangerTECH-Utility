@@ -14,7 +14,7 @@ echo "Donations: https://www.paypal.com/donate/?hosted_button_id=FD26FHKRWS3US"
 
 sleep 5
 
-CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 27 85 19 \
+CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 28 85 20 \
   "openHAB" "install openHABian on top of your running System " ON \
   "Docker" "install just the Docker Engine" OFF \
   "Docker+Docker-Compose" "install Docker & Docker-Compose" OFF \
@@ -33,6 +33,7 @@ CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SEL
   "node-exporter" "Data Export used to show host stats in Grafana " OFF \
   "Whats-Up-Docker" "updating Docker Containers made easy " OFF \
   "WatchYourLAN" "Lightweight network IP scanner" OFF \
+  "Backup" "clone your system to an external device " OFF \
   "shut-wake" "shuts down & wakes up your Server fully automatic " OFF  3>&1 1>&2 2>&3)
 
 if [ -z "$CHOICES" ]; then
@@ -208,6 +209,13 @@ if [ -z "$CHOICES" ]; then
         fi
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "WatchYourLAN" --msgbox "scan your Network here http://$ipaddr:8840" 8 82
+      ;;
+      '"Backup"')
+        disk=$(lsblk)
+        diskint=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --inputbox "which disk do you want to clone?\n\n$disk " 17 85 3>&1 1>&2 2>&3)
+        diskext=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --inputbox "on which disk do you want to store your clone?\n\n$disk " 17 85 3>&1 1>&2 2>&3)
+        sudo dd if=/dev/$diskint of=/dev/$diskext bs=64K conv=noerror,sync status=progress
+        whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "WatchYourLAN" --msgbox "You´re save. Cloning complete." 8 82
       ;;
       '"shut-wake"')
         timeshutdown=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --inputbox " when do you want to shutdown your server? (hh:mm) " 15 85 3>&1 1>&2 2>&3)

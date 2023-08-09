@@ -61,6 +61,8 @@ For ARM Systems:
 4. sh bangertech_utility_arm.sh
 5. pick your Program and follow the Steps presented by the Tool
 
+check out the development Branch here: https://github.com/BangerTech/The-BangerTECH-Utility/tree/development
+
 written Article how to use it: https://bangertech.de/the-bangertech-utility-smarthome-server-schnell-einfach-installiert/
 
 # 5. Support / Feedback

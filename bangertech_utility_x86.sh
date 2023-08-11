@@ -15,7 +15,6 @@ sleep 5
 
 CHOICES=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 28 85 20 \
   "openHAB" "install openHABian on top of your running System " ON \
-  "Docker" "install just the Docker Engine" OFF \
   "Docker+Docker-Compose" "install Docker & Docker-Compose" OFF \
   "MosquittoBroker" "Mosquitto MQTT Broker" OFF \
   "Zigbee2MQTT" "Zigbee to MQTT Bridge" OFF \
@@ -54,13 +53,6 @@ if [ -z "$CHOICES" ]; then
         if whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "MESSAGE" --yesno "openHAB is running on port http://$ipaddr:8080\nWould you like to restore your old openHAB config?" 14 82; then
         sudo openhab-cli restore /var/lib/openhab/backups/openhab-backup.zip
         fi
-      ;;
-      '"Docker"')
-        sudo apt install curl -y
-        sudo curl -fsSL https://get.docker.com -o get-docker.sh
-        sudo sh get-docker.sh
-        sudo rm get-docker.sh
-        sudo systemctl enable docker
       ;;
       '"Docker+Docker-Compose"')
         sudo apt install curl -y

@@ -18,25 +18,24 @@ After you´ve choosen a Program the Tool will install and setup everything for y
 There are two versions, one for ARM based Systems like a Raspberry Pi and one for X86 Systems like a Server, Desktop...  
 
 1. openHABian
-2. Docker
-3. Docker + Docker-Compose
-4. Mosquitto Broker
-5. Zigbee2MQTT
-6. Homebridge
-7. Grafana
-8. influxDB
-9. Portainer
-10. Filestash / Filebrowser
-11. Heimdall
-12. HomeAssistant
-13. RaspberryMatic
-14. CodeServer
-15. Prometheus
-16. node-exporter
-17. Whats up Docker
-18. WatchYourLAN
-19. Backup
-20. shut-wake Script
+2. Docker + Docker-Compose
+3. Mosquitto Broker
+4. Zigbee2MQTT
+5. Homebridge
+6. Grafana
+7. influxDB
+8. Portainer
+9. Filestash / Filebrowser
+10. Heimdall
+11. HomeAssistant
+12. RaspberryMatic
+13. CodeServer
+14. Prometheus
+15. node-exporter
+16. Whats up Docker
+17. WatchYourLAN
+18. Backup
+19. shut-wake Script
 
 
 # 3. Setup & Requirements

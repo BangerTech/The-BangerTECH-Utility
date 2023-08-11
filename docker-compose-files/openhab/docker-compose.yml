@@ -1,0 +1,18 @@
+version: '2.2'
+
+services:
+  openhab:
+    image: "openhab/openhab:stable"
+    restart: always
+    network_mode: host
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "./addons:/openhab/addons"
+      - "./conf:/openhab/conf"
+      - "./userdata:/openhab/userdata"
+    environment:
+      CRYPTO_POLICY: "unlimited"
+      EXTRA_JAVA_OPTS: "-Duser.timezone=Europe/Berlin"
+      OPENHAB_HTTP_PORT: "8080"
+      OPENHAB_HTTPS_PORT: "8443"

@@ -6,7 +6,7 @@ sudo bash -c 'sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-Ban
 #sudo bash -c 'sudo apt update && sudo apt upgrade -y >/dev/null 2>&1 & disown'
 
 sleep 2
-sudo cat logo.txt
+sudo cat $HOME/logo.txt
 
 echo "Website:   https://bangertech.de"
 echo "Donations: https://www.paypal.com/donate/?hosted_button_id=FD26FHKRWS3US"

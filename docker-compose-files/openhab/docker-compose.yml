@@ -2,7 +2,7 @@ version: '2.2'
 
 services:
   openhab:
-    image: "openhab/openhab:stable"
+    image: "openhab/openhab:latest"
     restart: always
     network_mode: host
     volumes:

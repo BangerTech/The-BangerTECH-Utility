@@ -14,7 +14,7 @@
 
 # 2. What is this Tool?
 This Tool is usefull to install Programs & Software on your Debian based Server, Desktop, Mini-PC...  
-After you´ve choosen a Program the Tool will install and setup everything for you.  
+After you´ve choosen a Program the Tool will install and setup everything for you.   
 There are two versions, one for ARM based Systems like a Raspberry Pi and one for X86 Systems like a Server, Desktop...  
 
 1. openHABian

@@ -61,7 +61,7 @@ if [ -z "$CHOICES" ]; then
         sudo mkdir -p $HOME/docker-compose-data/openhab && cd $HOME/docker-compose-data/openhab
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/openhab/docker-compose.yml
         sudo docker-compose up -d
-        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "openHAB" --msgbox "control your Home here http://$ipaddr:7000" 8 82
+        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "openHAB" --msgbox "control your Home here http://$ipaddr:8080" 8 82
       ;;
       '"Frontail"')
         ipaddr=$(/mnt/c/Windows/System32/ipconfig.exe | grep 192.168. | grep -m1 IPv4 | awk '{print $13}' | tr -d '\r')
@@ -69,7 +69,7 @@ if [ -z "$CHOICES" ]; then
         sudo mkdir -p $HOME/docker-compose-data/frontail && cd $HOME/docker-compose-data/frontail
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/frontail/docker-compose.yml
         sudo docker-compose up -d
-        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Frontail" --msgbox "check your Log´s here http://$ipaddr:7000" 8 82
+        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Frontail" --msgbox "check your Log´s here http://$ipaddr:9001" 8 82
       ;;
       '"MosquittoBroker"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data

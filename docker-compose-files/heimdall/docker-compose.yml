@@ -6,7 +6,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Germany/Berlin
+      - TZ=Europe/Berlin
     volumes:
       - ./appdata/config:/config
     ports:

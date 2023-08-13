@@ -4,7 +4,10 @@ services:
   openhab:
     image: "openhab/openhab:latest"
     restart: always
-    network_mode: host
+#    network_mode: host
+    ports:
+      - 8080:8080
+      - 8443:8443
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
       - "/etc/timezone:/etc/timezone:ro"

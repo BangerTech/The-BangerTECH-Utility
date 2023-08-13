@@ -7,7 +7,7 @@ services:
       container_name: frontail
       command: --disable-usage-stats --ui-highlight --ui-highlight-preset /frontail/preset/openhab_AEM.json -t openhab_AEM -l 5000 -n 100 /logs/openhab.log /logs/events.log
       volumes:
-        - $HOME/docker-compose-data/openhab/userdata/logs:/logs:ro
+        - "./userdata/logs:/logs:ro"
       ports:
         - "9001:9001"
       restart: unless-stopped

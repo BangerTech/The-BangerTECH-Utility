@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  raspberrymatic:
+    image: ghcr.io/jens-maus/raspberrymatic:latest
+    container_name: ccu
+    hostname: homematic-raspi
+    privileged: true
+    restart: unless-stopped
+    stop_grace_period: 30s
+    volumes:
+      - ccu_data:/usr/local:rw
+      - /lib/modules:/lib/modules:ro
+      - /run/udev/control:/run/udev/control
+    ports:
+      - "8083:80"
+      - "2001:2001"
+      - "2010:2010"
+      - "9292:9292"
+      - "8181:8181"
+volumes:
+  ccu_data:

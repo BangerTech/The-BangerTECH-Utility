@@ -1,0 +1,35 @@
+global:
+  scrape_interval: 30s
+  scrape_timeout: 10s
+
+rule_files:
+  - alert.yml
+
+scrape_configs:
+  - job_name: services
+    metrics_path: /metrics
+    
+    scrape_interval: 5s
+    scrape_timeout: 2s
+    static_configs:
+      - targets:
+          - 'prometheus:9090'
+
+  
+  - job_name: choose-name
+    
+    scrape_interval: 6s
+    scrape_timeout: 3s
+    static_configs:
+      - targets:
+          - 'exporterIP:Port'
+
+  - job_name: choose-name2
+    
+    scrape_interval: 5s
+    scrape_timeout: 2s
+    static_configs:
+      - targets:
+          - 'exporterIP:Port'
+          - 'exporterIP:Port'
+          - 'exporterIP:Port'

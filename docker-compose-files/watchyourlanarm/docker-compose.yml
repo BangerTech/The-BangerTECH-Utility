@@ -1,0 +1,27 @@
+version: "3"
+services:
+#  node-bootstrap:
+#    image: aceberg/node-bootstrap
+#    restart: unless-stopped
+#    ports:
+#    - 8850:8850
+  wyl:
+    image: aceberg/watchyourlan:latest
+    network_mode: "host"      
+    restart: unless-stopped
+    command: "-n http://127.0.0.1:8850"
+#    depends_on:
+#      - node-bootstrap
+    volumes:
+    - ./.dockerdata/wyl:/data
+    environment:
+      TZ: Europe/Berlin                 # required: needs your TZ for correct time
+      DBPATH: "/data/db.sqlite"         # optional, default: /data/db.sqlite
+      GUIIP: "0.0.0.0"                  # optional, default: localhost
+      GUIPORT: "8840"                   # optional, default: 8840
+      TIMEOUT: "120"                    # optional, time in seconds, default: 60
+      SHOUTRRR_URL: ""                  # optional, set url to notify
+      THEME: "darkly"                   # optional
+      IGNOREIP: "no"
+
+

@@ -2,7 +2,7 @@
 
 sudo apt update && sudo apt upgrade -y
 sudo bash -c 'sudo apt install whiptail -y >/dev/null 2>&1 & disown'
-sudo bash -c 'sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/scripts/logo.txt >/dev/null 2>&1 & disown'
+sudo bash -c 'sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/scripts/logo.txt >/dev/null 2>&1 & disown'
 #sudo bash -c 'sudo apt update && sudo apt upgrade -y >/dev/null 2>&1 & disown'
 
 sleep 2
@@ -74,7 +74,7 @@ if [ -z "$CHOICES" ]; then
         ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/openhab && cd $HOME/docker-compose-data/openhab
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/openhab/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/openhab/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "openHAB" --msgbox "control your Home here http://$ipaddr:8080" 8 82
       ;;
@@ -82,7 +82,7 @@ if [ -z "$CHOICES" ]; then
         ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/frontail && cd $HOME/docker-compose-data/frontail
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/frontail/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/frontail/docker-compose.yml
         sudo chmod 666 /var/run/docker.sock
         docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Frontail" --msgbox "check your Log´s here http://$ipaddr:9001" 8 82
@@ -90,9 +90,9 @@ if [ -z "$CHOICES" ]; then
       '"MosquittoBroker"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/mosquitto && cd $HOME/docker-compose-data/mosquitto
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/mosquitto-broker/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/mosquitto-broker/docker-compose.yml
         sudo mkdir -p $HOME/docker-compose-data/mosquitto/config && cd $HOME/docker-compose-data/mosquitto/config
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/mosquitto-broker/mosquitto.conf
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/mosquitto-broker/mosquitto.conf
         cd ..
         sudo docker-compose up -d
       ;;
@@ -100,7 +100,7 @@ if [ -z "$CHOICES" ]; then
         ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/zigbee2mqtt && cd $HOME/docker-compose-data/zigbee2mqtt
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/zigbee2mqtt/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/zigbee2mqtt/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Zigbee2MQTT" --msgbox "Check your Zigbee Network here http://$ipaddr:7000" 8 82
       ;;
@@ -108,7 +108,7 @@ if [ -z "$CHOICES" ]; then
         ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/homebridge && cd $HOME/docker-compose-data/homebridge
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/homebridge/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/homebridge/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Homebridge" --msgbox "Setup the HomeKit Bridge here http://$ipaddr:8581" 8 82
       ;;
@@ -116,24 +116,19 @@ if [ -z "$CHOICES" ]; then
         ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/grafana && cd $HOME/docker-compose-data/grafana
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/grafana/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/grafana/docker-compose.yml
         sudo mkdir -p $HOME/docker-compose-data/grafana/data && cd $HOME/docker-compose-data/grafana/data
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/grafana/env.grafana
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/grafana/env.grafana
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Grafana" --msgbox "The Dashboard´s are located here http://$ipaddr:3000" 8 82
       ;;
       '"influxDB"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/influxdb && cd $HOME/docker-compose-data/influxdb
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/influxdb-arm/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/influxdb-arm/docker-compose.yml
         sudo docker-compose up -d
-<<<<<<< HEAD
-        if whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --yesno "Would you like to create a DATABASE openhab with USER openhabuser PASSWD openhab ?" 8 82; then
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/influxdb-arm/main/influxdatabase.sh
-=======
         if whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --yesno "Would you like to create a DATABASE database1 with USER user1 PASSWD pwd12345 ?" 8 82; then
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/scripts/influxdb/influxdbdatabase.sh
->>>>>>> development
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/scripts/influxdb/influxdbdatabase.sh
         sudo sh influxdatabase.sh
         else 
           whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "MESSAGE" --msgbox "You need to create your own DATABASE & USER " 8 82
@@ -143,7 +138,7 @@ if [ -z "$CHOICES" ]; then
         ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/portainer && cd $HOME/docker-compose-data/portainer
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/portainer/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/portainer/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Portainer" --msgbox "You´ll find the WebUI on port http://$ipaddr:8999" 8 82
       ;;
@@ -154,27 +149,27 @@ if [ -z "$CHOICES" ]; then
         sudo mkdir -p $HOME/docker-compose-data/filebrowser/database && cd $HOME/docker-compose-data/filebrowser/database
         sudo touch filebrowser.db
         cd $HOME/docker-compose-data/filebrowser
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/filebrowser/settings.json
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/filebrowser/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/filebrowser/settings.json
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/filebrowser/docker-compose.yml
         sudo docker-compose up -d
 <<<<<<< HEAD
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Filebrowser" --msgbox "You´ll find your self hosted Filebrowser on port http://yourIP:8998\nUser=admin Password=admin " 8 82
 =======
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Filebrowser" --msgbox "You´ll find your self hosted Filebrowser on port http://$ipaddr:8998\nUser=admin Password=admin " 8 82
->>>>>>> development
+>>>>>>> main
       ;;
       '"Heimdall"')
         ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/heimdall && cd $HOME/docker-compose-data/heimdall
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/heimdall/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/heimdall/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Heimdall" --msgbox "You´ll find the Dashboard on port http://$ipaddr:8500" 8 82
       ;;
       '"HomeAssistant"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/homeassistant && cd $HOME/docker-compose-data/homeassistant
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/homeassistant/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/homeassistant/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "HomeAssistant" --msgbox "Your HomeAssistant is located here http://$ipaddr:8123" 8 82
       ;;
@@ -182,7 +177,7 @@ if [ -z "$CHOICES" ]; then
         ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/raspberrymatic && cd $HOME/docker-compose-data/raspberrymatic
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/raspberrymatic/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/raspberrymatic/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "RaspberryMatic" --msgbox "Your RaspberryMatic is located here http://$ipaddr:8083" 8 82
       ;;
@@ -190,7 +185,7 @@ if [ -z "$CHOICES" ]; then
         ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/codeserver && cd $HOME/docker-compose-data/codeserver
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/codeserver/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/codeserver/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "CodeServer" --msgbox "Your CodeServer is located here http://$ipaddr:8440\nPassword is: admin\nYou may change it here $HOME/docker-compose-data/codeserver/docker-compose.yml" 14 82
       ;;
@@ -198,17 +193,17 @@ if [ -z "$CHOICES" ]; then
         ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/prometheus && cd $HOME/docker-compose-data/prometheus
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/prometheus/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/prometheus/docker-compose.yml
         sudo mkdir -p $HOME/docker-compose-data/prometheus/prometheus && cd $HOME/docker-compose-data/prometheus/prometheus
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/prometheus/prometheus.yml
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/prometheus/alert.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/prometheus/prometheus.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/prometheus/alert.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Prometheus" --msgbox "Your Prometheus Monitoring runs at http://$ipaddr:9090" 8 82
       ;;
       '"node-exporter"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/node_exporter && cd $HOME/docker-compose-data/node_exporter
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/nodeexporter/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/nodeexporter/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "node-exporter" --msgbox "Scrape your Data from http://$ipaddr:9100" 8 82
       ;;
@@ -216,7 +211,7 @@ if [ -z "$CHOICES" ]; then
         ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/whatsupdocker && cd $HOME/docker-compose-data/whatsupdocker
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/whatsupdocker/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/whatsupdocker/docker-compose.yml
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Whats up Docker" --msgbox "Update your Containers here http://$ipaddr:3004" 8 82
       ;;
@@ -225,7 +220,7 @@ if [ -z "$CHOICES" ]; then
         lanaddr1=$(ls /sys/class/net/)
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/watchyourlan && cd $HOME/docker-compose-data/watchyourlan
-        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/watchyourlan/docker-compose.yml
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/watchyourlan/docker-compose.yml
         lanaddr=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --inputbox "which network interface do you want to use to scan?\n\n$lanaddr1 " 17 85 3>&1 1>&2 2>&3)
         if ! grep -q 'command: "'"-n http://'"$ipaddr"':8850"'"' "$HOME/docker-compose-data/watchyourlan/docker-compose.yml"; then
         sudo sed -i '12i\    command: "'"-n http://'"$ipaddr"':8850"'"' "$HOME/docker-compose-data/watchyourlan/docker-compose.yml"

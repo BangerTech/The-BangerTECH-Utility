@@ -50,14 +50,14 @@ There are two versions, one for ARM based Systems like a Raspberry Pi and one fo
 
 For X86 Systems:
 1. cd $HOME
-2. sudo wget https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/bangertech_utility_x86.sh
+2. sudo wget https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/bangertech_utility_x86.sh
 3. sudo chmod +x bangertech_utility_x86.sh
 4. sh bangertech_utility_x86.sh
 5. pick a Program and follow the Steps presented by the Tool
 
 For ARM Systems:
 1. cd $HOME
-2. sudo wget https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/bangertech_utility_arm.sh
+2. sudo wget https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/bangertech_utility_arm.sh
 3. sudo chmod +x bangertech_utility_arm.sh
 4. sh bangertech_utility_arm.sh
 5. pick a Program and follow the Steps presented by the Tool
@@ -68,21 +68,13 @@ For Windows Systems:
 3. open PowerShell and login as User
 4. proceed with 3. Setup & Requirements
 5. cd $HOME
-6. sudo wget https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/bangertech_utility_windows.sh
+6. sudo wget https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/bangertech_utility_windows.sh
 7. sudo chmod +x bangertech_utility_windows.sh
 8. sh bangertech_utility_windows.sh
 9. pick a Program and follow the Steps presented by the Tool
 
-check out the development Branch here: https://github.com/BangerTech/The-BangerTECH-Utility/tree/development
+check out the development Branch for the latest Changes: https://github.com/BangerTech/The-BangerTECH-Utility/tree/development
 
-For ARM Systems:
-1. cd $HOME
-2. sudo wget https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/bangertech_utility_arm.sh
-3. sudo chmod +x bangertech_utility_arm.sh
-4. sh bangertech_utility_arm.sh
-5. pick your Program and follow the Steps presented by the Tool
-
-check out the development Branch here: https://github.com/BangerTech/The-BangerTECH-Utility/tree/development
 
 written Article how to use it: https://bangertech.de/the-bangertech-utility-smarthome-server-schnell-einfach-installiert/
 

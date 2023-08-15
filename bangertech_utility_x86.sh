@@ -67,7 +67,7 @@ if [ -z "$CHOICES" ]; then
         sudo mkdir -p $HOME/docker-compose-data
       ;;
       '"openHAB-Docker"')
-        sudo apt-get install openjdk-17-jdk openjdk-17-demo openjdk-17-doc openjdk-17-jre-headless openjdk-17-source
+        sudo apt-get install openjdk-17-jdk openjdk-17-demo openjdk-17-doc openjdk-17-jre-headless openjdk-17-source -y
         ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/openhab && cd $HOME/docker-compose-data/openhab

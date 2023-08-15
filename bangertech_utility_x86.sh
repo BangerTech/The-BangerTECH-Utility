@@ -66,6 +66,7 @@ if [ -z "$CHOICES" ]; then
         sudo systemctl enable docker
         user=$(whoami)
         sudo usermod -aG docker $user
+        sudo chmod 666 /var/run/docker.sock
         sudo mkdir -p $HOME/docker-compose-data
       ;;
       '"openHAB-Docker"')

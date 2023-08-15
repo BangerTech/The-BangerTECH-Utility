@@ -152,11 +152,7 @@ if [ -z "$CHOICES" ]; then
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/filebrowser/settings.json
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/filebrowser/docker-compose.yml
         sudo docker-compose up -d
-<<<<<<< HEAD
-        whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Filebrowser" --msgbox "You´ll find your self hosted Filebrowser on port http://yourIP:8998\nUser=admin Password=admin " 8 82
-=======
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Filebrowser" --msgbox "You´ll find your self hosted Filebrowser on port http://$ipaddr:8998\nUser=admin Password=admin " 8 82
->>>>>>> main
       ;;
       '"Heimdall"')
         ipaddr=$(hostname -I | awk '{print $1}')
@@ -221,7 +217,7 @@ if [ -z "$CHOICES" ]; then
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/watchyourlan && cd $HOME/docker-compose-data/watchyourlan
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/main/docker-compose-files/watchyourlan/docker-compose.yml
-        lanaddr=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --inputbox "which network interface do you want to use to scan?\n\n$lanaddr1 " 17 85 3>&1 1>&2 2>&3)
+        lanaddr=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --inputbox "which network interface do you want to use to scan?\n\n$lanaddr1 " 25 85 3>&1 1>&2 2>&3)
         if ! grep -q 'command: "'"-n http://'"$ipaddr"':8850"'"' "$HOME/docker-compose-data/watchyourlan/docker-compose.yml"; then
         sudo sed -i '12i\    command: "'"-n http://'"$ipaddr"':8850"'"' "$HOME/docker-compose-data/watchyourlan/docker-compose.yml"
         fi

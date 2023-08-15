@@ -19,23 +19,25 @@ There are two versions, one for ARM based Systems like a Raspberry Pi and one fo
 
 1. openHABian
 2. Docker + Docker-Compose
-3. Mosquitto Broker
-4. Zigbee2MQTT
-5. Homebridge
-6. Grafana
-7. influxDB
-8. Portainer
-9. Filestash / Filebrowser
-10. Heimdall
-11. HomeAssistant
-12. RaspberryMatic
-13. CodeServer
-14. Prometheus
-15. node-exporter
-16. Whats up Docker
-17. WatchYourLAN
-18. Backup
-19. shut-wake Script
+3. openHAB-Docker
+4. Frontail
+5. Mosquitto Broker
+6. Zigbee2MQTT
+7. Homebridge
+8. Grafana
+9. influxDB
+10. Portainer
+11. Filestash (linux) / Filebrowser (arm)
+12. Heimdall
+13. HomeAssistant
+14. RaspberryMatic
+15. CodeServer
+16. Prometheus
+17. node-exporter
+18. Whats up Docker
+19. WatchYourLAN
+20. Backup (linux & arm)
+21. shut-wake Script (linux)
 
 
 # 3. Setup & Requirements
@@ -51,14 +53,25 @@ For X86 Systems:
 2. sudo wget https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/bangertech_utility_x86.sh
 3. sudo chmod +x bangertech_utility_x86.sh
 4. sh bangertech_utility_x86.sh
-5. pick your Program and follow the Steps presented by the Tool
+5. pick a Program and follow the Steps presented by the Tool
 
 For ARM Systems:
 1. cd $HOME
 2. sudo wget https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/bangertech_utility_arm.sh
 3. sudo chmod +x bangertech_utility_arm.sh
 4. sh bangertech_utility_arm.sh
-5. pick your Program and follow the Steps presented by the Tool
+5. pick a Program and follow the Steps presented by the Tool
+
+For Windows Systems:
+1. install wsl --install -d Debian
+2. Download Docker Desktop and install. https://docs.docker.com/desktop/install/windows-install/
+3. open PowerShell and login as User
+4. proceed with 3. Setup & Requirements
+5. cd $HOME
+6. sudo wget https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/bangertech_utility_windows.sh
+7. sudo chmod +x bangertech_utility_windows.sh
+8. sh bangertech_utility_windows.sh
+9. pick a Program and follow the Steps presented by the Tool
 
 check out the development Branch here: https://github.com/BangerTech/The-BangerTECH-Utility/tree/development
 

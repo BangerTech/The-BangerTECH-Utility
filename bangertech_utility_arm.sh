@@ -17,6 +17,8 @@ sleep 5
 CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 28 85 20 \
   "openHAB" "install openHABian on top of your running System " ON \
   "Docker+Docker-Compose" "install Docker & Docker-Compose" OFF \
+  "openHAB-Docker" "openHAB in a Docker Container" OFF \
+  "Frontail" "LogViewer for openHAB" OFF \
   "MosquittoBroker" "Mosquitto MQTT Broker" OFF \
   "Zigbee2MQTT" "Zigbee to MQTT Bridge" OFF \
   "Homebridge" "Homebridge/HomeKit Server" OFF \
@@ -63,7 +65,27 @@ if [ -z "$CHOICES" ]; then
         sudo apt install -y libffi-dev libssl-dev python3-dev python3 python3-pip
         sudo apt install docker-compose -y
         sudo systemctl enable docker
+        user=$(whoami)
+        sudo usermod -aG docker $user
         sudo mkdir -p $HOME/docker-compose-data
+      ;;
+      '"openHAB-Docker"')
+        sudo apt-get install openjdk-17-jdk openjdk-17-demo openjdk-17-doc openjdk-17-jre-headless openjdk-17-source -y
+        ipaddr=$(hostname -I | awk '{print $1}')
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/openhab && cd $HOME/docker-compose-data/openhab
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/openhab/docker-compose.yml
+        sudo docker-compose up -d
+        whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "openHAB" --msgbox "control your Home here http://$ipaddr:8080" 8 82
+      ;;
+      '"Frontail"')
+        ipaddr=$(hostname -I | awk '{print $1}')
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/frontail && cd $HOME/docker-compose-data/frontail
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/frontail/docker-compose.yml
+        sudo chmod 666 /var/run/docker.sock
+        docker-compose up -d
+        whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Frontail" --msgbox "check your Log´s here http://$ipaddr:9001" 8 82
       ;;
       '"MosquittoBroker"')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data

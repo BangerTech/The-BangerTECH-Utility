@@ -82,7 +82,7 @@ if [ -z "$CHOICES" ]; then
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/frontail && cd $HOME/docker-compose-data/frontail
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/frontail/docker-compose.yml
-        sudo docker-compose up -d
+        docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Frontail" --msgbox "check your Log´s here http://$ipaddr:9001" 8 82
       ;;
       '"MosquittoBroker"')

@@ -23,6 +23,7 @@ CHOICES=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "SEL
   "Homebridge" "Homebridge/HomeKit Server" OFF \
   "Grafana" "Grafana Dashboard in a Docker Container" OFF \
   "influxDB" "influxDB Database in a Docker Container" OFF \
+  "Dockge" "easy to use docker-compose Manager" OFF \
   "Portainer" "Docker Management Platform" OFF \
   "Filestash" "FTP File Browser in a Docker Container" OFF \
   "Heimdall" "Self hosted Dashboard" OFF \
@@ -132,6 +133,14 @@ if [ -z "$CHOICES" ]; then
         else 
           whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "MESSAGE" --msgbox "You need to create your own DATABASE & USER " 8 82
         fi
+      ;;
+      '"Dockge"')
+        ipaddr=$(hostname -I | awk '{print $1}')
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/dockge && cd $HOME/docker-compose-data/dockge
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/dockge/docker-compose.yml
+        sudo docker-compose up -d
+        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Dockge" --msgbox "You´ll find the WebUI on port http://$ipaddr:5001" 8 82
       ;;
       '"Portainer"')
         ipaddr=$(hostname -I | awk '{print $1}')

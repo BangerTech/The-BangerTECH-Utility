@@ -121,6 +121,14 @@ if [ -z "$CHOICES" ]; then
           whiptail --backtitle "The BangerTECH Utility WINDOWS VERSION" --title "MESSAGE" --msgbox "You need to create your own DATABASE & USER " 8 82
         fi
       ;;
+      '"Dockge"')
+        ipaddr=$(hostname -I | awk '{print $1}')
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/dockge && cd $HOME/docker-compose-data/dockge
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/dockge/docker-compose.yml
+        sudo docker-compose up -d
+        whiptail --backtitle "The BangerTECH Utility WINDOWS VERSION" --title "Dockge" --msgbox "You´ll find the WebUI on port http://$ipaddr:5001" 8 82
+      ;;
       '"Portainer"')
         ipaddr=$(/mnt/c/Windows/System32/ipconfig.exe | grep 192.168. | grep -m1 IPv4 | awk '{print $13}' | tr -d '\r')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data

@@ -15,7 +15,7 @@ sudo usermod -aG docker $user
 
 sleep 5
 
-CHOICES=$(whiptail --backtitle "The BangerTECH Utility WINDOWS VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 28 85 20 \
+CHOICES=$(whiptail --backtitle "The BangerTECH Utility WINDOWS VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 28 85 22 \
   "openHAB" "install openHABian on top of your running System " ON \
   "openHAB-Docker" "openHAB in a Docker Container" OFF \
   "Frontail" "LogViewer for openHAB Docker" OFF \

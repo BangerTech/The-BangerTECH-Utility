@@ -14,7 +14,7 @@ echo "Donations: https://www.paypal.com/donate/?hosted_button_id=FD26FHKRWS3US"
 
 sleep 5
 
-CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 28 85 20 \
+CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SELECT PACKAGES TO INSTALL"  --checklist "Choose options" 28 85 22 \
   "openHAB" "install openHABian on top of your running System " ON \
   "Docker+Docker-Compose" "install Docker & Docker-Compose" OFF \
   "openHAB-Docker" "openHAB in a Docker Container" OFF \

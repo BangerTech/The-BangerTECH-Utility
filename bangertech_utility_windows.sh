@@ -24,6 +24,7 @@ CHOICES=$(whiptail --backtitle "The BangerTECH Utility WINDOWS VERSION" --title 
   "Homebridge" "Homebridge/HomeKit Server" OFF \
   "Grafana" "Grafana Dashboard in a Docker Container" OFF \
   "influxDB" "influxDB Database in a Docker Container" OFF \
+  "Dockge" "easy to use docker-compose Manager" OFF \
   "Portainer" "Docker Management Platform" OFF \
   "Filestash" "FTP File Browser in a Docker Container" OFF \
   "Heimdall" "Self hosted Dashboard" OFF \

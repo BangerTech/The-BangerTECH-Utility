@@ -24,6 +24,7 @@ CHOICES=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "SEL
   "Homebridge" "Homebridge/HomeKit Server" OFF \
   "Grafana" "Grafana Dashboard in a Docker Container" OFF \
   "influxDB" "influxDB Database in a Docker Container" OFF \
+  "Dockge" "easy to use docker-compose Manager" OFF \
   "Portainer" "Docker Management Platform" OFF \
   "Filebrowser" "Self hosted File Managemnet in a Docker Container" OFF \
   "Heimdall" "Self hosted Dashboard" OFF \

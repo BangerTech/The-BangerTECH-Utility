@@ -27,6 +27,7 @@ CHOICES=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "SEL
   "Portainer" "Docker Management Platform" OFF \
   "Filestash" "FTP File Browser in a Docker Container" OFF \
   "Heimdall" "Self hosted Dashboard" OFF \
+  "HomePage" "Self hosted Dashboard" OFF \
   "HomeAssistant" "HomeAssistant in a Docker Container " OFF \
   "RaspberryMatic" "Homematic CCU in a Docker Container " OFF \
   "CodeServer" "VS Code through a Browser " OFF \

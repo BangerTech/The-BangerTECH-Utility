@@ -140,6 +140,13 @@ if [ -z "$CHOICES" ]; then
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
         sudo mkdir -p $HOME/docker-compose-data/dockge && cd $HOME/docker-compose-data/dockge
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/dockge/docker-compose.yml
+        stacks=$(whiptail --backtitle "The BangerTECH Utility ARM VERSION" --inputbox "where are your docker stacks stored?\n\n$stacks1 " 17 85 3>&1 1>&2 2>&3)
+        if ! grep -q '- '$stacks':'$stacks'' "$HOME/docker-compose-data/dockge/docker-compose.yml"; then
+        sudo sed -i '12i\      - '$stacks':'$stacks'' "$HOME/docker-compose-data/dockge/docker-compose.yml"
+        fi
+        if ! grep -q '- DOCKGE_STACKS_DIR='$stacks'' "$HOME/docker-compose-data/dockge/docker-compose.yml"; then
+        sudo sed -i '15i\      - DOCKGE_STACKS_DIR='$stacks'' "$HOME/docker-compose-data/dockge/docker-compose.yml"
+        fi
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility ARM VERSION" --title "Dockge" --msgbox "You´ll find the WebUI on port http://$ipaddr:5001" 8 82
       ;;

@@ -146,7 +146,6 @@ if [ -z "$CHOICES" ]; then
         if ! grep -q '- DOCKGE_STACKS_DIR='$stacks'' "$HOME/docker-compose-data/dockge/docker-compose.yml"; then
         sudo sed -i '15i\      - DOCKGE_STACKS_DIR='$stacks'' "$HOME/docker-compose-data/dockge/docker-compose.yml"
         fi
-
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Dockge" --msgbox "You´ll find the WebUI on port http://$ipaddr:5001" 8 82
       ;;

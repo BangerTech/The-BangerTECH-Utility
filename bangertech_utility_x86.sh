@@ -143,7 +143,7 @@ if [ -z "$CHOICES" ]; then
         if ! grep -q '- '$stacks':'$stacks'' "$HOME/docker-compose-data/dockge/docker-compose.yml"; then
         sudo sed -i '12i\      - '$stacks':'$stacks'' "$HOME/docker-compose-data/dockge/docker-compose.yml"
         fi
-        if ! grep -q '- '$stacks':'$stacks'' "$HOME/docker-compose-data/dockge/docker-compose.yml"; then
+        if ! grep -q '- DOCKGE_STACKS_DIR='$stacks'' "$HOME/docker-compose-data/dockge/docker-compose.yml"; then
         sudo sed -i '15i\      - DOCKGE_STACKS_DIR='$stacks'' "$HOME/docker-compose-data/dockge/docker-compose.yml"
         fi
 

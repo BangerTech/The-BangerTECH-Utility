@@ -140,8 +140,8 @@ if [ -z "$CHOICES" ]; then
         sudo mkdir -p $HOME/docker-compose-data/dockge && cd $HOME/docker-compose-data/dockge
         sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/dockge/docker-compose.yml
         stacks=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --inputbox "where are your docker stacks stored?\n\n$stacks1 " 17 85 3>&1 1>&2 2>&3)
-        if ! grep -q '- "'"$stacks"'":"'"$stacks"'"' "$HOME/docker-compose-data/dockge/docker-compose.yml"; then
-        sudo sed -i '12i\      - "'"$stacks"'":"'"$stacks"'"' "$HOME/docker-compose-data/dockge/docker-compose.yml"
+        if ! grep -q '- '"$stacks"':'"$stacks"'' "$HOME/docker-compose-data/dockge/docker-compose.yml"; then
+        sudo sed -i '12i\      - '"$stacks"':'"$stacks"'' "$HOME/docker-compose-data/dockge/docker-compose.yml"
         fi
 
 
@@ -257,7 +257,7 @@ if [ -z "$CHOICES" ]; then
         diskext=$(whiptail --backtitle "The BangerTECH Utility X86 VERSION" --inputbox "on which disk do you want to store your clone?\n\n$disk " 17 85 3>&1 1>&2 2>&3)
         if whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "MESSAGE" --yesno "Would you like to clone $diskint to $diskext now?" 8 82; then
         sudo dd if=/dev/$diskint of=/dev/$diskext bs=64K conv=noerror,sync status=progress
-        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "WatchYourLAN" --msgbox "You´re save. Cloning complete." 8 82
+        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "MESSAGE" --msgbox "You´re save. Cloning complete." 8 82
         else 
           whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "MESSAGE" --msgbox "Please redo the installation" 8 82
         fi

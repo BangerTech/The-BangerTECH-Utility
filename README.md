@@ -30,15 +30,16 @@ There are two versions, one for ARM based Systems like a Raspberry Pi and one fo
 11. Portainer
 12. Filestash (linux) / Filebrowser (arm)
 13. Heimdall
-14. HomeAssistant
-15. RaspberryMatic
-16. CodeServer
-17. Prometheus
-18. node-exporter
-19. Whats up Docker
-20. WatchYourLAN
-21. Backup (linux & arm)
-22. shut-wake Script (linux)
+14. HomePage
+15. HomeAssistant
+16. RaspberryMatic
+17. CodeServer
+18. Prometheus
+19. node-exporter
+20. Whats up Docker
+21. WatchYourLAN
+22. Backup (linux & arm)
+23. shut-wake Script (linux)
 
 
 # 3. Setup & Requirements

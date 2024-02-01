@@ -182,6 +182,14 @@ if [ -z "$CHOICES" ]; then
         sudo docker-compose up -d
         whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "Heimdall" --msgbox "You´ll find the Dashboard on port http://$ipaddr:8500" 8 82
       ;;
+      '"HomePage"')
+        ipaddr=$(hostname -I | awk '{print $1}')
+        sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data
+        sudo mkdir -p $HOME/docker-compose-data/homepage && cd $HOME/docker-compose-data/homepage
+        sudo wget -nc https://raw.githubusercontent.com/BangerTech/The-BangerTECH-Utility/development/docker-compose-files/homepage/docker-compose.yml
+        sudo docker-compose up -d
+        whiptail --backtitle "The BangerTECH Utility X86 VERSION" --title "HomePage" --msgbox "Your HomePage Dashboard is located here http://$ipaddr:3005" 8 82
+      ;;
       '"HomeAssistant"')
         ipaddr=$(hostname -I | awk '{print $1}')
         sudo mkdir -p $HOME/docker-compose-data && cd $HOME/docker-compose-data

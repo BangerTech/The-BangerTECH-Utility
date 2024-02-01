@@ -43,7 +43,7 @@ There are two versions, one for ARM based Systems like a Raspberry Pi and one fo
 
 # 3. Setup & Requirements
 - _sudo_ should be installed
-- **$USER** needs to be a Member of Group _sudo_
+- **$USER** needs to be a Member of Group _sudo_ sudo usermod -aG sudo <username>
 - ad **%sudo  ALL=(ALL) NOPASSWD:ALL** with _visudo_
 - Docker + Docker-Compose is **required** for all Container based Programs
 

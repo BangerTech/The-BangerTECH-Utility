@@ -12,4 +12,3 @@ services:
 
     environment:
       # Tell Dockge where is your stacks directory
-      - DOCKGE_STACKS_DIR=$HOME/docker-compose-data/dockge
